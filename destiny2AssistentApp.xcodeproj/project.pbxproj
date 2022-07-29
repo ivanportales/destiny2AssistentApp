@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
+		AE1803A128949D8700FEB082 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A028949D8700FEB082 /* Request.swift */; };
+		AE1803A928949EE000FEB082 /* destiny2AssistentAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* destiny2AssistentAppTests.swift */; };
 		AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */; };
 		AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05B9288CDCA9007DDF9E /* SceneDelegate.swift */; };
 		AEDF05BC288CDCA9007DDF9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05BB288CDCA9007DDF9E /* ViewController.swift */; };
@@ -15,7 +18,21 @@
 		AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		AE1803AA28949EE000FEB082 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AEDF05AC288CDCA9007DDF9E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AEDF05B3288CDCA9007DDF9E;
+			remoteInfo = destiny2AssistentApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		AE18039E28949BED00FEB082 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		AE1803A028949D8700FEB082 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = destiny2AssistentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE1803A828949EE000FEB082 /* destiny2AssistentAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = destiny2AssistentAppTests.swift; sourceTree = "<group>"; };
 		AEDF05B4288CDCA9007DDF9E /* destiny2AssistentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = destiny2AssistentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEDF05B9288CDCA9007DDF9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -27,6 +44,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		AE1803A328949EE000FEB082 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AEDF05B1288CDCA9007DDF9E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -37,10 +61,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE18039D28949BCA00FEB082 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */,
+				AE18039E28949BED00FEB082 /* APIConstants.swift */,
+				AE1803A028949D8700FEB082 /* Request.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AE1803A728949EE000FEB082 /* destiny2AssistentAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				AE1803A828949EE000FEB082 /* destiny2AssistentAppTests.swift */,
+			);
+			path = destiny2AssistentAppTests;
+			sourceTree = "<group>";
+		};
 		AEDF05AB288CDCA9007DDF9E = {
 			isa = PBXGroup;
 			children = (
 				AEDF05B6288CDCA9007DDF9E /* destiny2AssistentApp */,
+				AE1803A728949EE000FEB082 /* destiny2AssistentAppTests */,
 				AEDF05B5288CDCA9007DDF9E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				AEDF05B4288CDCA9007DDF9E /* destiny2AssistentApp.app */,
+				AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -94,7 +138,7 @@
 		AEFDC7AC288E1C8700BB5E31 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */,
+				AE18039D28949BCA00FEB082 /* Models */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -111,6 +155,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AE1803A528949EE000FEB082 /* destiny2AssistentAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE1803AC28949EE000FEB082 /* Build configuration list for PBXNativeTarget "destiny2AssistentAppTests" */;
+			buildPhases = (
+				AE1803A228949EE000FEB082 /* Sources */,
+				AE1803A328949EE000FEB082 /* Frameworks */,
+				AE1803A428949EE000FEB082 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AE1803AB28949EE000FEB082 /* PBXTargetDependency */,
+			);
+			name = destiny2AssistentAppTests;
+			productName = destiny2AssistentAppTests;
+			productReference = AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		AEDF05B3288CDCA9007DDF9E /* destiny2AssistentApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AEDF05C8288CDCAA007DDF9E /* Build configuration list for PBXNativeTarget "destiny2AssistentApp" */;
@@ -138,6 +200,10 @@
 				LastSwiftUpdateCheck = 1320;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					AE1803A528949EE000FEB082 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = AEDF05B3288CDCA9007DDF9E;
+					};
 					AEDF05B3288CDCA9007DDF9E = {
 						CreatedOnToolsVersion = 13.2.1;
 					};
@@ -157,11 +223,19 @@
 			projectRoot = "";
 			targets = (
 				AEDF05B3288CDCA9007DDF9E /* destiny2AssistentApp */,
+				AE1803A528949EE000FEB082 /* destiny2AssistentAppTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AE1803A428949EE000FEB082 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AEDF05B2288CDCA9007DDF9E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,11 +248,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AE1803A228949EE000FEB082 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AE1803A928949EE000FEB082 /* destiny2AssistentAppTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AEDF05B0288CDCA9007DDF9E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */,
+				AE1803A128949D8700FEB082 /* Request.swift in Sources */,
+				AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */,
 				AEDF05BC288CDCA9007DDF9E /* ViewController.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
 				AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */,
@@ -186,6 +270,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		AE1803AB28949EE000FEB082 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = AEDF05B3288CDCA9007DDF9E /* destiny2AssistentApp */;
+			targetProxy = AE1803AA28949EE000FEB082 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		AEDF05C2288CDCAA007DDF9E /* LaunchScreen.storyboard */ = {
@@ -199,6 +291,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AE1803AD28949EE000FEB082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.portales.destiny2AssistentAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/destiny2AssistentApp.app/destiny2AssistentApp";
+			};
+			name = Debug;
+		};
+		AE1803AE28949EE000FEB082 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.portales.destiny2AssistentAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/destiny2AssistentApp.app/destiny2AssistentApp";
+			};
+			name = Release;
+		};
 		AEDF05C6288CDCAA007DDF9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -370,6 +496,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AE1803AC28949EE000FEB082 /* Build configuration list for PBXNativeTarget "destiny2AssistentAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE1803AD28949EE000FEB082 /* Debug */,
+				AE1803AE28949EE000FEB082 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AEDF05AF288CDCA9007DDF9E /* Build configuration list for PBXProject "destiny2AssistentApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
