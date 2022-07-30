@@ -1,33 +1,34 @@
 //
-//  Request.swift
-//  destiny2AssistentApp
+//  RequestFactoryTests.swift
+//  destiny2AssistentAppTests
 //
 //  Created by Gonzalo Ivan Santos Portales on 29/07/22.
 //
 
-import Foundation
+import XCTest
+@testable import destiny2AssistentApp
 
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case update = "UPDATE"
+class RequestFactoryTests: XCTestCase {
+    
+    func testEndpoint() {
+        let sut = makeSut()
+        
+        let request: RequestMock = .testingCase(id: "idPathParameter")
+        
+        do {
+           let result = try sut.make(request: request)
+            XCTAssertNotNil(result)
+        } catch let error {
+            XCTFail(error.localizedDescription)
+        }
+    }
+
+    func makeSut() -> RequestFactory {
+        return RequestFactory(constants: Destiny2APIConstants())
+    }
 }
 
-enum HTTPScheme: String {
-    case http = "http"
-    case https = "https"
-}
-
-protocol RequestProtocol {
-    var headers: [String: String] { get }
-    var scheme: HTTPScheme { get }
-    var path: String { get }
-    var queriesParameters: [String: String] { get }
-    var httpMethod: HTTPMethod { get }
-}
-
-enum Request: RequestProtocol {
+enum RequestMock: RequestProtocol {
     case testingCase(id: String)
     
     var headers: [String : String] {

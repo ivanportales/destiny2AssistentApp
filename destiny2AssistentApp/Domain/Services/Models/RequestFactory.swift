@@ -42,7 +42,7 @@ struct RequestFactory: RequestFactoryProtocol {
     private func makeURLComponents(from request: RequestProtocol) -> URLComponents {
         var urlComponents = URLComponents()
         urlComponents.host = constants.host
-        urlComponents.scheme = request.scheme
+        urlComponents.scheme = request.scheme.rawValue
         urlComponents.path = request.path
         urlComponents.queryItems = request.queriesParameters.map { URLQueryItem(name: $0, value: $1) }
         

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
 		AE1803A128949D8700FEB082 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A028949D8700FEB082 /* Request.swift */; };
-		AE1803A928949EE000FEB082 /* destiny2AssistentAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* destiny2AssistentAppTests.swift */; };
+		AE1803A928949EE000FEB082 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */; };
 		AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */; };
 		AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05B9288CDCA9007DDF9E /* SceneDelegate.swift */; };
 		AEDF05BC288CDCA9007DDF9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05BB288CDCA9007DDF9E /* ViewController.swift */; };
@@ -32,7 +32,7 @@
 		AE18039E28949BED00FEB082 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		AE1803A028949D8700FEB082 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = destiny2AssistentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE1803A828949EE000FEB082 /* destiny2AssistentAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = destiny2AssistentAppTests.swift; sourceTree = "<group>"; };
+		AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
 		AEDF05B4288CDCA9007DDF9E /* destiny2AssistentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = destiny2AssistentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEDF05B9288CDCA9007DDF9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +74,7 @@
 		AE1803A728949EE000FEB082 /* destiny2AssistentAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				AE1803A828949EE000FEB082 /* destiny2AssistentAppTests.swift */,
+				AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */,
 			);
 			path = destiny2AssistentAppTests;
 			sourceTree = "<group>";
@@ -252,7 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE1803A928949EE000FEB082 /* destiny2AssistentAppTests.swift in Sources */,
+				AE1803A928949EE000FEB082 /* RequestFactoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
