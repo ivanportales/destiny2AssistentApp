@@ -33,7 +33,7 @@ struct RequestFactory: RequestFactoryProtocol {
         
         let headers = request.headers.merging(constants.headers) { current, _ in current }
         for (key, value) in headers {
-            urlRequest.addValue(key, forHTTPHeaderField: value)
+            urlRequest.addValue(value, forHTTPHeaderField: key)
         }
 
         return urlRequest

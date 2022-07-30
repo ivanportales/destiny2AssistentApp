@@ -17,7 +17,10 @@ class RequestFactoryTests: XCTestCase {
         
         do {
            let result = try sut.make(request: request)
-            XCTAssertNotNil(result)
+            
+            XCTAssertEqual(result.httpMethod!, HTTPMethod.get.rawValue)
+            XCTAssertEqual(result.url?.relativeString, "https://www.bungie.net%2FPlatform/User/GetBungieNetUserById/idPathParameter?")
+            XCTAssertEqual(result.allHTTPHeaderFields, ["X-API-Key": "752b9e510a124a89ab4efa4caed70457"])
         } catch let error {
             XCTFail(error.localizedDescription)
         }
