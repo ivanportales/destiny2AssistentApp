@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE145D2C289753EF0037741C /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE145D2B289753EF0037741C /* OAuthService.swift */; };
+		AE145D2F28975C5D0037741C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE145D2E28975C5D0037741C /* AuthService.swift */; };
 		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
 		AE1803A128949D8700FEB082 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A028949D8700FEB082 /* Request.swift */; };
 		AE1803A928949EE000FEB082 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */; };
@@ -29,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE145D2B289753EF0037741C /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
+		AE145D2E28975C5D0037741C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		AE18039E28949BED00FEB082 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		AE1803A028949D8700FEB082 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = destiny2AssistentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -61,6 +65,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE145D2D28975C4E0037741C /* AuthService */ = {
+			isa = PBXGroup;
+			children = (
+				AE145D2E28975C5D0037741C /* AuthService.swift */,
+			);
+			path = AuthService;
+			sourceTree = "<group>";
+		};
 		AE18039D28949BCA00FEB082 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,7 +150,9 @@
 		AEFDC7AC288E1C8700BB5E31 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AE145D2D28975C4E0037741C /* AuthService */,
 				AE18039D28949BCA00FEB082 /* Models */,
+				AE145D2B289753EF0037741C /* OAuthService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -265,7 +279,9 @@
 				AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */,
 				AEDF05BC288CDCA9007DDF9E /* ViewController.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
+				AE145D2C289753EF0037741C /* OAuthService.swift in Sources */,
 				AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */,
+				AE145D2F28975C5D0037741C /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
