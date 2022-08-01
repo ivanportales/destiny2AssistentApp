@@ -62,8 +62,8 @@
             filePath = "destiny2AssistentApp/Navigation/FlowController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
             landmarkName = "openLoginWebView(_:with:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SafariServices
 
 class FlowController {
     
@@ -24,44 +23,15 @@ class FlowController {
         viewController.delegate = self
         navigationController.pushViewController(viewController, animated: false)
     }
+    
+    func handleAuthenticationFlowWith(code: String, andState state: String) {
+        
+    }
 }
 
 extension FlowController: LoginViewControllerDelegate {
     func openLoginWebView(_ viewController: LoginViewController, with url: URL) {
-        let webViewController = SFSafariViewController(url: url)
+        let webViewController = factory.makeWebView(with: url)
         viewController.present(webViewController, animated: true, completion: nil)
-    }
-}
-
-class ViewControllersFactory {
-
-    
-    func makeLoginViewController() -> LoginViewController {
-        let requestFactory: RequestFactoryProtocol = RequestFactory(constants: AuthenticationConstants())
-        return LoginViewController(requestFactory: requestFactory)
-    }
-    
-    func makeWebView(with url: URL) -> SFSafariViewController {
-        return SFSafariViewController(url: url)
-    }
-}
-
-class AppMainFactory {
-    
-    private let navigationController: UINavigationController = UINavigationController()
-    
-    func makeMainAppWindowWith(appScene: UIWindowScene) -> UIWindow? {
-        let window = UIWindow(windowScene: appScene)
-        window.rootViewController = navigationController
-        window.makeKeyAndVisible()
-        
-        return window
-    }
-    
-    func makeAppFlowController() -> FlowController {
-        let viewControllerfactory = ViewControllersFactory()
-        
-        return FlowController(navigationController: navigationController,
-                              factory: viewControllerfactory)
     }
 }
