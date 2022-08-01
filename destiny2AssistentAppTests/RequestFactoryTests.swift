@@ -19,7 +19,7 @@ class RequestFactoryTests: XCTestCase {
            let result = try sut.make(request: request)
             
             XCTAssertEqual(result.httpMethod!, HTTPMethod.get.rawValue)
-            XCTAssertEqual(result.url?.relativeString, "https://www.bungie.net%2FPlatform/User/GetBungieNetUserById/idPathParameter?")
+            XCTAssertEqual(result.url?.relativeString, "https://www.bungie.net/Platform/User/GetBungieNetUserById/idPathParameter?")
             XCTAssertEqual(result.allHTTPHeaderFields, ["X-API-Key": "752b9e510a124a89ab4efa4caed70457"])
         } catch let error {
             XCTFail(error.localizedDescription)
@@ -51,7 +51,7 @@ enum RequestMock: RequestProtocol {
     var path: String {
         switch self {
         case .testingCase(let id):
-            return "/User/GetBungieNetUserById/\(id)"
+            return "/Platform/User/GetBungieNetUserById/\(id)"
         }
     }
     

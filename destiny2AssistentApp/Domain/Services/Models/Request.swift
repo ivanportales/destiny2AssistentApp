@@ -28,40 +28,56 @@ protocol RequestProtocol {
 }
 
 enum Request: RequestProtocol {
-    case testingCase(id: String)
+    case authentication(stateCallbackUniqueId: String)
     
     var headers: [String : String] {
         switch self {
-        case .testingCase:
+        case .authentication:
             return [:]
         }
     }
     
     var scheme: HTTPScheme {
         switch self {
-        case .testingCase:
+        case .authentication:
             return .https
         }
     }
     
     var path: String {
         switch self {
-        case .testingCase(let id):
-            return "/User/GetBungieNetUserById/\(id)"
+        case .authentication:
+            return ""
         }
     }
     
     var queriesParameters: [String : String] {
         switch self {
-        case .testingCase:
+        case .authentication:
             return [:]
         }
     }
     
     var httpMethod: HTTPMethod {
         switch self {
-        case .testingCase:
+        case .authentication:
             return .get
         }
+    }
+}
+
+struct AuthenticationRequest: RequestProtocol {
+    var headers: [String : String] = [:]
+    var scheme: HTTPScheme = .https
+    var path: String = "/en/oauth/authorize"
+    var queriesParameters: [String : String]
+    var httpMethod: HTTPMethod = .get
+    
+    init(stateCallbackUniqueId: String) {
+        self.queriesParameters = [
+            "state": stateCallbackUniqueId,
+            "response_type": "code",
+            "client_id": "40896"
+        ]
     }
 }

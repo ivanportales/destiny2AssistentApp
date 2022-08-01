@@ -51,6 +51,8 @@ enum AuthRequest: RequestProtocol {
     }
 }
 
+
+// talvez mudar isso só pra ser um cara especializado pro authservice
 protocol ServiceProtocol {
     func send<ResultType: Decodable>(request: URLRequest, completion: @escaping (Result<ResultType, Error>) -> Void)
 }

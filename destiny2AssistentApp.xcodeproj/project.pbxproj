@@ -12,6 +12,8 @@
 		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
 		AE1803A128949D8700FEB082 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A028949D8700FEB082 /* Request.swift */; };
 		AE1803A928949EE000FEB082 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */; };
+		AED3FA612898554100C6D21C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA602898554100C6D21C /* LoginViewController.swift */; };
+		AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA6328985B4500C6D21C /* FlowController.swift */; };
 		AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */; };
 		AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05B9288CDCA9007DDF9E /* SceneDelegate.swift */; };
 		AEDF05BC288CDCA9007DDF9E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05BB288CDCA9007DDF9E /* ViewController.swift */; };
@@ -37,6 +39,8 @@
 		AE1803A028949D8700FEB082 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = destiny2AssistentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
+		AED3FA602898554100C6D21C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		AED3FA6328985B4500C6D21C /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		AEDF05B4288CDCA9007DDF9E /* destiny2AssistentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = destiny2AssistentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AEDF05B9288CDCA9007DDF9E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +95,22 @@
 			path = destiny2AssistentAppTests;
 			sourceTree = "<group>";
 		};
+		AED3FA5F2898552A00C6D21C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				AED3FA602898554100C6D21C /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		AED3FA6228985B2F00C6D21C /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				AED3FA6328985B4500C6D21C /* FlowController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		AEDF05AB288CDCA9007DDF9E = {
 			isa = PBXGroup;
 			children = (
@@ -112,6 +132,7 @@
 		AEDF05B6288CDCA9007DDF9E /* destiny2AssistentApp */ = {
 			isa = PBXGroup;
 			children = (
+				AED3FA6228985B2F00C6D21C /* Navigation */,
 				AEFDC7AD288E1C9000BB5E31 /* Domain */,
 				AEDF05CB288CDD4C007DDF9E /* UI */,
 				AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */,
@@ -124,6 +145,7 @@
 		AEDF05CB288CDD4C007DDF9E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AED3FA5F2898552A00C6D21C /* Login */,
 				AEDF05CC288CDD52007DDF9E /* Home */,
 			);
 			path = UI;
@@ -274,8 +296,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AED3FA612898554100C6D21C /* LoginViewController.swift in Sources */,
 				AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */,
 				AE1803A128949D8700FEB082 /* Request.swift in Sources */,
+				AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */,
 				AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */,
 				AEDF05BC288CDCA9007DDF9E /* ViewController.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,

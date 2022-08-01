@@ -13,10 +13,19 @@ protocol APIConstantsProtocol {
 }
 
 struct Destiny2APIConstants: APIConstantsProtocol {
-    let host: String = "www.bungie.net/Platform"
+    let host: String = "www.bungie.net"
+    //let host: String = "www.bungie.net/Platform"
+
     let headers: [String : String] = [
         "X-API-Key": "752b9e510a124a89ab4efa4caed70457"
     ]
+    
+    init() {}
+}
+
+struct AuthenticationConstants: APIConstantsProtocol {
+    let host: String = "www.bungie.net"
+    let headers: [String : String] = [:]
     
     init() {}
 }
