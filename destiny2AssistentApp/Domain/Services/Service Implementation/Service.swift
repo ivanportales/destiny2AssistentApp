@@ -7,13 +7,18 @@
 
 import Foundation
 
-class ServiceImplementation: ServiceProtocol {
+protocol ServiceProtocol {
+    func send<ResultType: Decodable>(request: URLRequest,
+                                     completion: @escaping (Result<ResultType, ServiceError>) -> Void)
+}
+
+class Service: ServiceProtocol {
     
     private let httpClient: HTTPClientProtocol
     private let decoder: DataDecoderProtocol
     
     init(httpClient: HTTPClientProtocol = URLSession.shared,
-         decoder: DataDecoderProtocol = DataDecoderImplementation()) {
+         decoder: DataDecoderProtocol = DataDecoder()) {
         self.httpClient = httpClient
         self.decoder = decoder
     }
@@ -53,6 +58,7 @@ class ServiceImplementation: ServiceProtocol {
                 }
                 completion(.success(decodedData))
             } catch let error {
+                print(error)
                 completion(.failure(.serializationError(message: "Not Serialized \(error.localizedDescription)")))
             }
         }

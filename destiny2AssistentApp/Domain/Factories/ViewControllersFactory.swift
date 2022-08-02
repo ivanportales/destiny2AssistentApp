@@ -9,10 +9,17 @@ import Foundation
 import SafariServices
 
 class ViewControllersFactory {
-
+    let authService: AuthService
+    let service: ServiceProtocol
+    
+    init(authService: AuthService,
+         service: ServiceProtocol) {
+        self.authService = authService
+        self.service = service
+    }
+    
     func makeLoginViewController() -> LoginViewController {
-        let requestFactory: RequestFactoryProtocol = RequestFactory(constants: AuthenticationConstants())
-        return LoginViewController(requestFactory: requestFactory)
+        return LoginViewController(service: authService)
     }
     
     func makeWebView(with url: URL) -> SFSafariViewController {

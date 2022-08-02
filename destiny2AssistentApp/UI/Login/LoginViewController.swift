@@ -31,15 +31,18 @@ class LoginViewController: UIViewController {
     //private let loginService: LoginServiceProtocol
     weak var delegate: LoginViewControllerDelegate?
     
-    private let requestFactory: RequestFactoryProtocol
+    //private let requestFactory: RequestFactoryProtocol
+    
+    private let service: AuthService
     
 //    init(loginService: LoginServiceProtocol) {
 //        self.loginService = loginService
 //        super.init(nibName: nil, bundle: nil)
 //    }
     
-    init(requestFactory: RequestFactoryProtocol) {
-        self.requestFactory = requestFactory
+    init(service: AuthService) {
+        //self.requestFactory = requestFactory
+        self.service = service
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -70,15 +73,13 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func touchLoginButton() {
-        //loginService.requestLogin()
-        do {
-            let state = UUID().uuidString
-            guard let url = try requestFactory.make(request: AuthenticationRequest(stateCallbackUniqueId: state)).url else {
-                return
+        service.requestLogin { result in
+            switch result {
+            case .success():
+                print("FOI CARALHO")
+            case .failure(let error):
+                print(error)
             }
-            delegate?.openLoginWebView(self, with: url)
-        } catch {
-            print(error)
         }
     }
 }

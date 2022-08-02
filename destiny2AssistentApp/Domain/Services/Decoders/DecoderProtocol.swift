@@ -11,7 +11,7 @@ protocol DataDecoderProtocol {
     func decode<ResultType: Decodable>(data: Data, to type: ResultType.Type, fromMime mime: String) throws -> ResultType
 }
 
-class DataDecoderImplementation: DataDecoderProtocol {
+class DataDecoder: DataDecoderProtocol {
     
     func decode<ResultType>(data: Data,
                             to type: ResultType.Type,

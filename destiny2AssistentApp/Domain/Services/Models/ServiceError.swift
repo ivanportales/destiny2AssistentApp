@@ -8,7 +8,6 @@
 import Foundation
 
 enum ServiceError: Error, Equatable {
-    case urlCreationError
     case serverError(message: String)
     case noServerResponseError
     case httpStatusCodeError(statusCode: Int)
@@ -27,8 +26,6 @@ extension ServiceError {
     struct ErrorMessage {
         static func makeMessage(for error: ServiceError) -> String {
             switch error {
-            case .urlCreationError:
-                return "Error creating URL"
             case .serverError(let message):
                 return "Server error: \(message)"
             case .noServerResponseError:

@@ -21,13 +21,17 @@ enum HTTPScheme: String {
 
 protocol RequestProtocol {
     var headers: [String: String] { get }
+    var httpMethod: HTTPMethod { get }
     var scheme: HTTPScheme { get }
     var path: String { get }
     var queriesParameters: [String: String] { get }
-    var httpMethod: HTTPMethod { get }
+    var body: String? { get }
 }
 
+
+// muito provavel que eu deixe tudo em struct, vamo ver
 enum Request: RequestProtocol {
+    
     case authentication(stateCallbackUniqueId: String)
     
     var headers: [String : String] {
@@ -64,20 +68,8 @@ enum Request: RequestProtocol {
             return .get
         }
     }
-}
-
-struct AuthenticationRequest: RequestProtocol {
-    var headers: [String : String] = [:]
-    var scheme: HTTPScheme = .https
-    var path: String = "/en/oauth/authorize"
-    var queriesParameters: [String : String]
-    var httpMethod: HTTPMethod = .get
     
-    init(stateCallbackUniqueId: String) {
-        self.queriesParameters = [
-            "state": stateCallbackUniqueId,
-            "response_type": "code",
-            "client_id": "40896"
-        ]
+    var body: String? {
+        return nil
     }
 }
