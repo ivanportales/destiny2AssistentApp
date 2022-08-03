@@ -19,10 +19,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setuoView()
+        setupView()
     }
 
-    private func setuoView() {
+    private func setupView() {
         view.backgroundColor = .red
     }
 }

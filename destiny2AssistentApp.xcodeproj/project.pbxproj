@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		AE145D2C289753EF0037741C /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE145D2B289753EF0037741C /* OAuthService.swift */; };
-		AE145D2F28975C5D0037741C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE145D2E28975C5D0037741C /* AuthService.swift */; };
+		AE145D2F28975C5D0037741C /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE145D2E28975C5D0037741C /* AuthenticationService.swift */; };
 		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
 		AE1803A128949D8700FEB082 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A028949D8700FEB082 /* Request.swift */; };
 		AE1803A928949EE000FEB082 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */; };
-		AEB41A1C28995AFD007E8237 /* AuthenticationRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB41A1B28995AFD007E8237 /* AuthenticationRequests.swift */; };
-		AEB41A1F289963B4007E8237 /* AuthenticationFlowHandlerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB41A1E289963B4007E8237 /* AuthenticationFlowHandlerError.swift */; };
+		AEAF54DE289ACA73004D9A15 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAF54DD289ACA73004D9A15 /* TokenResponse.swift */; };
+		AEAF54E0289ACAA1004D9A15 /* TokenExchangeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAF54DF289ACAA1004D9A15 /* TokenExchangeRequest.swift */; };
+		AEB41A1C28995AFD007E8237 /* AuthorizationRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB41A1B28995AFD007E8237 /* AuthorizationRequest.swift */; };
+		AEB41A1F289963B4007E8237 /* AuthenticationServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB41A1E289963B4007E8237 /* AuthenticationServiceError.swift */; };
 		AED3FA612898554100C6D21C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA602898554100C6D21C /* LoginViewController.swift */; };
 		AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA6328985B4500C6D21C /* FlowController.swift */; };
 		AED3FA672898821C00C6D21C /* AppMainFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA662898821C00C6D21C /* AppMainFactory.swift */; };
@@ -22,7 +24,7 @@
 		AED3FA702898887100C6D21C /* URLSessionHTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA6F2898887100C6D21C /* URLSessionHTTPClient.swift */; };
 		AED3FA722898889600C6D21C /* HTTPResponseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA712898889600C6D21C /* HTTPResponseProtocol.swift */; };
 		AED3FA74289888C300C6D21C /* ServiceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA73289888C300C6D21C /* ServiceError.swift */; };
-		AED3FA7728988A1400C6D21C /* DecoderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7628988A1400C6D21C /* DecoderProtocol.swift */; };
+		AED3FA7728988A1400C6D21C /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7628988A1400C6D21C /* DataDecoder.swift */; };
 		AED3FA7B28988A7C00C6D21C /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7928988A7C00C6D21C /* DecoderError.swift */; };
 		AED3FA7C28988A7C00C6D21C /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7A28988A7C00C6D21C /* MimeType.swift */; };
 		AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05B7288CDCA9007DDF9E /* AppDelegate.swift */; };
@@ -45,13 +47,15 @@
 
 /* Begin PBXFileReference section */
 		AE145D2B289753EF0037741C /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
-		AE145D2E28975C5D0037741C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		AE145D2E28975C5D0037741C /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		AE18039E28949BED00FEB082 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		AE1803A028949D8700FEB082 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = destiny2AssistentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
-		AEB41A1B28995AFD007E8237 /* AuthenticationRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationRequests.swift; sourceTree = "<group>"; };
-		AEB41A1E289963B4007E8237 /* AuthenticationFlowHandlerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationFlowHandlerError.swift; sourceTree = "<group>"; };
+		AEAF54DD289ACA73004D9A15 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
+		AEAF54DF289ACAA1004D9A15 /* TokenExchangeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExchangeRequest.swift; sourceTree = "<group>"; };
+		AEB41A1B28995AFD007E8237 /* AuthorizationRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationRequest.swift; sourceTree = "<group>"; };
+		AEB41A1E289963B4007E8237 /* AuthenticationServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationServiceError.swift; sourceTree = "<group>"; };
 		AED3FA602898554100C6D21C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		AED3FA6328985B4500C6D21C /* FlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		AED3FA662898821C00C6D21C /* AppMainFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainFactory.swift; sourceTree = "<group>"; };
@@ -60,7 +64,7 @@
 		AED3FA6F2898887100C6D21C /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		AED3FA712898889600C6D21C /* HTTPResponseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPResponseProtocol.swift; sourceTree = "<group>"; };
 		AED3FA73289888C300C6D21C /* ServiceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceError.swift; sourceTree = "<group>"; };
-		AED3FA7628988A1400C6D21C /* DecoderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecoderProtocol.swift; sourceTree = "<group>"; };
+		AED3FA7628988A1400C6D21C /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		AED3FA7928988A7C00C6D21C /* DecoderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
 		AED3FA7A28988A7C00C6D21C /* MimeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		AEDF05B4288CDCA9007DDF9E /* destiny2AssistentApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = destiny2AssistentApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,7 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				AEB41A1D289963A7007E8237 /* Models */,
-				AE145D2E28975C5D0037741C /* AuthService.swift */,
+				AE145D2E28975C5D0037741C /* AuthenticationService.swift */,
 			);
 			path = AuthService;
 			sourceTree = "<group>";
@@ -103,7 +107,6 @@
 		AE18039D28949BCA00FEB082 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */,
 				AE18039E28949BED00FEB082 /* APIConstants.swift */,
 				AE1803A028949D8700FEB082 /* Request.swift */,
 				AED3FA73289888C300C6D21C /* ServiceError.swift */,
@@ -122,8 +125,10 @@
 		AEB41A1D289963A7007E8237 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AEB41A1B28995AFD007E8237 /* AuthenticationRequests.swift */,
-				AEB41A1E289963B4007E8237 /* AuthenticationFlowHandlerError.swift */,
+				AEB41A1E289963B4007E8237 /* AuthenticationServiceError.swift */,
+				AEB41A1B28995AFD007E8237 /* AuthorizationRequest.swift */,
+				AEAF54DF289ACAA1004D9A15 /* TokenExchangeRequest.swift */,
+				AEAF54DD289ACA73004D9A15 /* TokenResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -167,7 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				AED3FA7828988A6F00C6D21C /* Models */,
-				AED3FA7628988A1400C6D21C /* DecoderProtocol.swift */,
+				AED3FA7628988A1400C6D21C /* DataDecoder.swift */,
 			);
 			path = Decoders;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 		AEFDC7AC288E1C8700BB5E31 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */,
 				AED3FA7528988A0500C6D21C /* Decoders */,
 				AED3FA6C2898881900C6D21C /* Service Implementation */,
 				AE145D2D28975C4E0037741C /* AuthService */,
@@ -369,12 +375,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEAF54E0289ACAA1004D9A15 /* TokenExchangeRequest.swift in Sources */,
 				AED3FA612898554100C6D21C /* LoginViewController.swift in Sources */,
 				AED3FA6E2898882B00C6D21C /* Service.swift in Sources */,
-				AED3FA7728988A1400C6D21C /* DecoderProtocol.swift in Sources */,
+				AED3FA7728988A1400C6D21C /* DataDecoder.swift in Sources */,
 				AED3FA7C28988A7C00C6D21C /* MimeType.swift in Sources */,
 				AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */,
-				AEB41A1F289963B4007E8237 /* AuthenticationFlowHandlerError.swift in Sources */,
+				AEB41A1F289963B4007E8237 /* AuthenticationServiceError.swift in Sources */,
 				AE1803A128949D8700FEB082 /* Request.swift in Sources */,
 				AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */,
 				AED3FA672898821C00C6D21C /* AppMainFactory.swift in Sources */,
@@ -385,11 +392,12 @@
 				AEDF05BC288CDCA9007DDF9E /* ViewController.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
 				AE145D2C289753EF0037741C /* OAuthService.swift in Sources */,
+				AEAF54DE289ACA73004D9A15 /* TokenResponse.swift in Sources */,
 				AED3FA702898887100C6D21C /* URLSessionHTTPClient.swift in Sources */,
 				AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */,
 				AED3FA7B28988A7C00C6D21C /* DecoderError.swift in Sources */,
-				AE145D2F28975C5D0037741C /* AuthService.swift in Sources */,
-				AEB41A1C28995AFD007E8237 /* AuthenticationRequests.swift in Sources */,
+				AE145D2F28975C5D0037741C /* AuthenticationService.swift in Sources */,
+				AEB41A1C28995AFD007E8237 /* AuthorizationRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

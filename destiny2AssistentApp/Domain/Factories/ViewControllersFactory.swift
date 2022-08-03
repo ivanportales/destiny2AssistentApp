@@ -9,10 +9,10 @@ import Foundation
 import SafariServices
 
 class ViewControllersFactory {
-    let authService: AuthService
+    let authService: AuthenticationService
     let service: ServiceProtocol
     
-    init(authService: AuthService,
+    init(authService: AuthenticationService,
          service: ServiceProtocol) {
         self.authService = authService
         self.service = service

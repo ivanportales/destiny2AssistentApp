@@ -25,51 +25,51 @@ protocol RequestProtocol {
     var scheme: HTTPScheme { get }
     var path: String { get }
     var queriesParameters: [String: String] { get }
-    var body: String? { get }
+    var body: Data? { get }
 }
 
 
 // muito provavel que eu deixe tudo em struct, vamo ver
-enum Request: RequestProtocol {
-    
-    case authentication(stateCallbackUniqueId: String)
-    
-    var headers: [String : String] {
-        switch self {
-        case .authentication:
-            return [:]
-        }
-    }
-    
-    var scheme: HTTPScheme {
-        switch self {
-        case .authentication:
-            return .https
-        }
-    }
-    
-    var path: String {
-        switch self {
-        case .authentication:
-            return ""
-        }
-    }
-    
-    var queriesParameters: [String : String] {
-        switch self {
-        case .authentication:
-            return [:]
-        }
-    }
-    
-    var httpMethod: HTTPMethod {
-        switch self {
-        case .authentication:
-            return .get
-        }
-    }
-    
-    var body: String? {
-        return nil
-    }
-}
+//enum Request: RequestProtocol {
+//
+//    case authentication(stateCallbackUniqueId: String)
+//    
+//    var headers: [String : String] {
+//        switch self {
+//        case .authentication:
+//            return [:]
+//        }
+//    }
+//
+//    var scheme: HTTPScheme {
+//        switch self {
+//        case .authentication:
+//            return .https
+//        }
+//    }
+//
+//    var path: String {
+//        switch self {
+//        case .authentication:
+//            return ""
+//        }
+//    }
+//
+//    var queriesParameters: [String : String] {
+//        switch self {
+//        case .authentication:
+//            return [:]
+//        }
+//    }
+//
+//    var httpMethod: HTTPMethod {
+//        switch self {
+//        case .authentication:
+//            return .get
+//        }
+//    }
+//
+//    var body: Data? {
+//        return nil
+//    }
+//}

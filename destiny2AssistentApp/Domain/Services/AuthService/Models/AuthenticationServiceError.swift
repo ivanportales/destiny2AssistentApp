@@ -7,21 +7,21 @@
 
 import Foundation
 
-enum AuthenticationFlowHandlerError: Error, Equatable {
+enum AuthenticationServiceError: Error, Equatable {
     case urlCreationError
     case queriesValuesNotFinded
     case differentStateValue
 }
 
-extension AuthenticationFlowHandlerError: LocalizedError {
+extension AuthenticationServiceError: LocalizedError {
     var errorDescription: String? {
         return ErrorMessage.makeMessage(for: self)
     }
 }
 
-extension AuthenticationFlowHandlerError {
+extension AuthenticationServiceError {
     struct ErrorMessage {
-        static func makeMessage(for error: AuthenticationFlowHandlerError) -> String {
+        static func makeMessage(for error: AuthenticationServiceError) -> String {
             switch error {
             case .urlCreationError:
                 return "Error Creation Error"

@@ -11,11 +11,11 @@ class FlowController {
     
     private let navigationController: UINavigationController
     private let factory: ViewControllersFactory
-    private let authService: AuthService
+    private let authService: AuthenticationService
     
     init(navigationController: UINavigationController,
          factory: ViewControllersFactory,
-         authService: AuthService) {
+         authService: AuthenticationService) {
         self.navigationController = navigationController
         self.factory = factory
         self.authService = authService
@@ -29,7 +29,6 @@ class FlowController {
     
     func start() {
         let viewController = factory.makeLoginViewController()
-        //viewController.delegate = self
         navigationController.pushViewController(viewController, animated: false)
     }
     

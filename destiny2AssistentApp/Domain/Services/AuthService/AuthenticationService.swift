@@ -11,7 +11,7 @@ protocol AuthenticationFlowHandler {
     func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
-class AuthService {
+class AuthenticationService {
     
     private let requestFactory: RequestFactory
     private let service: ServiceProtocol
@@ -36,12 +36,15 @@ class AuthService {
             throw error
         }
     }
-    
+}
+
+extension AuthenticationService: LoginServiceProtocol {
     func requestLogin(completion: @escaping (Result<Void, Error>) -> Void) {
         loginRequestCallback = completion
         
         do {
             guard let url = try requestFactory.make(request: AuthorizationRequest(stateCallbackUniqueId: state)).url else {
+                completion(.failure(AuthenticationServiceError.urlCreationError))
                 return
             }
             requestedAuthorizationCallback?(url)
@@ -52,25 +55,7 @@ class AuthService {
     }
 }
 
-struct TokenResponse: Decodable {
-    let accessToken: String
-    let tokenType: String?
-    let expiresIn: Int?
-    let refreshToken: String?
-    let refreshExpiresIn: Int?
-    let membershipId: String?
-    
-    enum CodingKeys: String, CodingKey {
-        case accessToken = "access_token"
-        case tokenType = "token_type"
-        case expiresIn = "expires_in"
-        case refreshToken = "refresh_token"
-        case refreshExpiresIn = "refresh_expires_in"
-        case membershipId = "membership_id"
-    }
-}
-
-extension AuthService: AuthenticationFlowHandler {
+extension AuthenticationService: AuthenticationFlowHandler {
     func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<Void, Error>) -> Void) {
         do {
             let code = try getCodeFromUrl(url: url)
@@ -93,16 +78,16 @@ extension AuthService: AuthenticationFlowHandler {
     
     func getCodeFromUrl(url: URL) throws -> String {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            throw AuthenticationFlowHandlerError.urlCreationError
+            throw AuthenticationServiceError.urlCreationError
         }
         
         guard let code = components.queryItems?.first(where: { $0.name == "code" })?.value,
               let state = components.queryItems?.first(where: { $0.name == "state" })?.value else {
-                  throw AuthenticationFlowHandlerError.queriesValuesNotFinded
+                  throw AuthenticationServiceError.queriesValuesNotFinded
         }
         
         if self.state != state {
-            throw AuthenticationFlowHandlerError.differentStateValue
+            throw AuthenticationServiceError.differentStateValue
         }
         
         return code

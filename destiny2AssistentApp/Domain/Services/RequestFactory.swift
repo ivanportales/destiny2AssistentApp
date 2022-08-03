@@ -18,7 +18,6 @@ protocol RequestFactoryProtocol {
 struct RequestFactory: RequestFactoryProtocol {
     
     private let constants: APIConstantsProtocol
-    private let encoder = JSONEncoder()
     
     init(constants: APIConstantsProtocol) {
         self.constants = constants
@@ -31,9 +30,7 @@ struct RequestFactory: RequestFactoryProtocol {
         
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.httpMethod.rawValue
-        if let body = request.body {
-            urlRequest.httpBody = body.data(using: .utf8)
-        }
+        urlRequest.httpBody = request.body
         
         let headers = request.headers.merging(constants.headers) { current, _ in current }
         for (key, value) in headers {
@@ -53,5 +50,3 @@ struct RequestFactory: RequestFactoryProtocol {
         return urlComponents
     }
 }
-
-// testar fazer implementeções do Request em enum e struct

@@ -9,11 +9,7 @@ import Foundation
 import UIKit
 
 protocol LoginServiceProtocol {
-    func requestLogin()
-}
-
-protocol LoginViewControllerDelegate: AnyObject {
-    func openLoginWebView(_ viewController: LoginViewController, with url: URL)
+    func requestLogin(completion: @escaping (Result<Void, Error>) -> Void)
 }
 
 class LoginViewController: UIViewController {
@@ -27,21 +23,10 @@ class LoginViewController: UIViewController {
         
         return loginButton
     }()
-    
-    //private let loginService: LoginServiceProtocol
-    weak var delegate: LoginViewControllerDelegate?
-    
-    //private let requestFactory: RequestFactoryProtocol
-    
-    private let service: AuthService
-    
-//    init(loginService: LoginServiceProtocol) {
-//        self.loginService = loginService
-//        super.init(nibName: nil, bundle: nil)
-//    }
-    
-    init(service: AuthService) {
-        //self.requestFactory = requestFactory
+            
+    private let service: LoginServiceProtocol
+
+    init(service: LoginServiceProtocol) {
         self.service = service
         super.init(nibName: nil, bundle: nil)
     }
