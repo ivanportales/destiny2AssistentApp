@@ -5,7 +5,6 @@
 //  Created by Gonzalo Ivan Santos Portales on 01/08/22.
 //
 
-import Foundation
 import UIKit
 
 protocol LoginServiceProtocol {
@@ -18,13 +17,12 @@ class LoginViewController: UIViewController {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = .loginWallpaper
-        //imageView.contentMode = .scaleAspectFill
         
         return imageView
     }()
     
     lazy var loginButton: Button = {
-        let loginButton = Button(title: "Login") { [weak self] _ in
+        let loginButton = Button(title: "LOGIN") { [weak self] _ in
             self?.service.requestLogin { result in
                 switch result {
                 case .success():
@@ -67,9 +65,7 @@ class LoginViewController: UIViewController {
     
     private func setupViewsConstraints() {
         imageView.constraintViewToSuperview()
-        
         NSLayoutConstraint.activate([
-            
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)

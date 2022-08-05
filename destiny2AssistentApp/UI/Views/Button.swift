@@ -30,6 +30,7 @@ public class Button: UIView {
         setupView()
         setupViewsHierarchy()
         setupViewsConstraints()
+        setupGestures()
     }
 
     required init?(coder: NSCoder) {
@@ -39,6 +40,7 @@ public class Button: UIView {
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .lightGray.withAlphaComponent(0.4)
+        setupBorder()
     }
     
     private func setupViewsHierarchy() {
@@ -60,6 +62,11 @@ public class Button: UIView {
         gesture.addTarget(self, action: #selector(gestureAction))
         
         addGestureRecognizer(gesture)
+    }
+    
+    private func setupBorder() {
+        layer.borderWidth = 0.5
+        layer.borderColor = UIColor.white.cgColor
     }
     
     @objc private func gestureAction() {

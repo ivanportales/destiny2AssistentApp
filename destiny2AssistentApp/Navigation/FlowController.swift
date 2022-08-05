@@ -22,7 +22,7 @@ class FlowController {
         authService.requestedAuthorizationCallback = { url in
             DispatchQueue.main.async {
                 let webViewController = factory.makeWebView(with: url)
-                navigationController.present(webViewController, animated: true, completion: nil)
+                navigationController.pushViewController(webViewController, animated: true)
             }
         }
     }
@@ -37,6 +37,10 @@ class FlowController {
         navigationController.pushViewController(viewController, animated: true)
     }
     
+    func pop() {
+        navigationController.popViewController(animated: true)
+    }
+    
     func showErrorScreen(with error: Error) {}
     
     // aqui vamo dar um handle nos deeplinks
@@ -45,6 +49,7 @@ class FlowController {
             DispatchQueue.main.async {
                 switch result {
                 case .success():
+                    self?.pop()
                     self?.showHomeScreen()
                 case .failure(let error):
                     self?.showErrorScreen(with: error)
