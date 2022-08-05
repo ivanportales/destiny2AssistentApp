@@ -14,12 +14,26 @@ protocol LoginServiceProtocol {
 
 class LoginViewController: UIViewController {
     
-    lazy var loginButton: UIButton = {
-        let loginButton = UIButton()
-        loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.setTitle("Login", for: .normal)
-        loginButton.setTitleColor(.red, for: .normal)
-        loginButton.addTarget(self, action: #selector(touchLoginButton), for: .touchUpInside)
+    lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = .loginWallpaper
+        //imageView.contentMode = .scaleAspectFill
+        
+        return imageView
+    }()
+    
+    lazy var loginButton: Button = {
+        let loginButton = Button(title: "Login") { [weak self] _ in
+            self?.service.requestLogin { result in
+                switch result {
+                case .success():
+                    print("FOI CARALHO")
+                case .failure(let error):
+                    print(error)
+                }
+            }
+        }
         
         return loginButton
     }()
@@ -47,24 +61,19 @@ class LoginViewController: UIViewController {
     }
     
     private func setupViewsHierarchy() {
+        view.addSubview(imageView)
         view.addSubview(loginButton)
     }
     
     private func setupViewsConstraints() {
+        imageView.constraintViewToSuperview()
+        
         NSLayoutConstraint.activate([
-            loginButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            loginButton.centerYAnchor.constraint(equalTo: view.centerYAnchor)
+            
+            loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
+
         ])
-    }
-    
-    @objc private func touchLoginButton() {
-        service.requestLogin { result in
-            switch result {
-            case .success():
-                print("FOI CARALHO")
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 }
