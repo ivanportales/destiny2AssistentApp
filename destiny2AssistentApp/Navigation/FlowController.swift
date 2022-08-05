@@ -11,11 +11,11 @@ class FlowController {
     
     private let navigationController: UINavigationController
     private let factory: ViewControllersFactory
-    private let authService: AuthenticationService
+    private let authService: AuthenticationServiceProtocol
     
     init(navigationController: UINavigationController,
          factory: ViewControllersFactory,
-         authService: AuthenticationService) {
+         authService: AuthenticationServiceProtocol) {
         self.navigationController = navigationController
         self.factory = factory
         self.authService = authService
@@ -32,21 +32,24 @@ class FlowController {
         navigationController.pushViewController(viewController, animated: false)
     }
     
+    func showHomeScreen() {
+        let viewController = factory.makeHomeViewController()
+        navigationController.pushViewController(viewController, animated: true)
+    }
+    
+    func showErrorScreen(with error: Error) {}
+    
     // aqui vamo dar um handle nos deeplinks
     func handle(openURLContext: UIOpenURLContext) {
-        authService.handleURLFromDeepLink(openURLContext.url) { result in
-            switch result {
-            case .success():
-                print("indo pra tela de Home")
-            case .failure(let error):
-                print(error)
+        authService.handleURLFromDeepLink(openURLContext.url) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success():
+                    self?.showHomeScreen()
+                case .failure(let error):
+                    self?.showErrorScreen(with: error)
+                }
             }
         }
     }
 }
-
-//extension FlowController: LoginViewControllerDelegate {
-//    func openLoginWebView(_ viewController: LoginViewController, with url: URL) {
-//
-//    }
-//}

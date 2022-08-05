@@ -58,7 +58,6 @@ class Service: ServiceProtocol {
                 }
                 completion(.success(decodedData))
             } catch let error {
-                print(error)
                 completion(.failure(.serializationError(message: "Serialization Error: \(error.localizedDescription)")))
             }
         }

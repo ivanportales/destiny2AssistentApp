@@ -9,11 +9,11 @@ import Foundation
 
 struct TokenResponse: Decodable {
     let accessToken: String
-    let tokenType: String?
-    let expiresIn: Int?
-    let refreshToken: String?
-    let refreshExpiresIn: Int?
-    let membershipId: String?
+    let tokenType: String
+    let expiresIn: Int
+    let refreshToken: String
+    let refreshExpiresIn: Int
+    let membershipId: String
     
     enum CodingKeys: String, CodingKey {
         case accessToken = "access_token"

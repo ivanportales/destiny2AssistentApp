@@ -7,11 +7,19 @@
 
 import Foundation
 
+// isso ta aqui pq talvez eu possa usar no futuro
 protocol AuthenticationFlowHandler {
     func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<Void, Error>) -> Void)
 }
 
-class AuthenticationService {
+protocol AuthenticationServiceProtocol: AnyObject {
+    var requestedAuthorizationCallback: ((URL) -> Void)? { get set }
+    
+    func requestAuthorization(completion: @escaping (Result<String, ServiceError>) -> Void) throws
+    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<Void, Error>) -> Void)
+}
+
+class AuthenticationService: AuthenticationServiceProtocol {
     
     private let requestFactory: RequestFactory
     private let service: ServiceProtocol
@@ -76,7 +84,7 @@ extension AuthenticationService: AuthenticationFlowHandler {
         }
     }
     
-    func getCodeFromUrl(url: URL) throws -> String {
+    private func getCodeFromUrl(url: URL) throws -> String {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             throw AuthenticationServiceError.urlCreationError
         }

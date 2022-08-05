@@ -28,7 +28,6 @@ protocol RequestProtocol {
     var body: Data? { get }
 }
 
-
 // muito provavel que eu deixe tudo em struct, vamo ver
 //enum Request: RequestProtocol {
 //

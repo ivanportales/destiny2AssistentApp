@@ -22,8 +22,10 @@ class AppMainFactory {
     func makeAppFlowController() -> FlowController {
         let service = Service(httpClient: URLSession.shared,
                               decoder: DataDecoder())
+        
         let authService = AuthenticationService(service: service,
-                                      requestFactory: RequestFactory(constants: AuthenticationConstants()))
+                                                requestFactory: RequestFactory(constants: AuthenticationConstants()))
+        
         let viewControllerfactory = ViewControllersFactory(authService: authService,
                                                            service: service)
         
