@@ -10,10 +10,10 @@ import SafariServices
 
 class ViewControllersFactory {
     private let authService: AuthenticationService
-    private let service: ServiceProtocol
+    private let service: Service
     
     init(authService: AuthenticationService,
-         service: ServiceProtocol) {
+         service: Service) {
         self.authService = authService
         self.service = service
     }
@@ -23,7 +23,8 @@ class ViewControllersFactory {
     }
     
     func makeHomeViewController() -> HomeViewController {
-        return HomeViewController()
+        let destinyService = DestinyService(service: service, requestFactory: RequestFactory(constants: Destiny2APIConstants()))
+        return HomeViewController(service: destinyService)
     }
     
     func makeWebView(with url: URL) -> SFSafariViewController {

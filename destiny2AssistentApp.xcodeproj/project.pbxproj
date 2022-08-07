@@ -39,6 +39,7 @@
 		AEDF05BC288CDCA9007DDF9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05BB288CDCA9007DDF9E /* HomeViewController.swift */; };
 		AEDF05C1288CDCAA007DDF9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEDF05C0288CDCAA007DDF9E /* Assets.xcassets */; };
 		AEDF05C4288CDCAA007DDF9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEDF05C2288CDCAA007DDF9E /* LaunchScreen.storyboard */; };
+		AEFBE349289F343C0068558D /* DestinyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFBE348289F343C0068558D /* DestinyService.swift */; };
 		AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */; };
 /* End PBXBuildFile section */
 
@@ -88,6 +89,7 @@
 		AEDF05C0288CDCAA007DDF9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEDF05C3288CDCAA007DDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEDF05C5288CDCAA007DDF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEFBE348289F343C0068558D /* DestinyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyService.swift; sourceTree = "<group>"; };
 		AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,10 +331,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		AEFBE347289F341C0068558D /* DestinyService */ = {
+			isa = PBXGroup;
+			children = (
+				AEFBE348289F343C0068558D /* DestinyService.swift */,
+			);
+			path = DestinyService;
+			sourceTree = "<group>";
+		};
 		AEFDC7AC288E1C8700BB5E31 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */,
+				AEFBE347289F341C0068558D /* DestinyService */,
 				AED3FA7528988A0500C6D21C /* Decoders */,
 				AED3FA6C2898881900C6D21C /* Service Implementation */,
 				AE145D2D28975C4E0037741C /* Authentication Service */,
@@ -483,6 +494,7 @@
 				AEDF05BC288CDCA9007DDF9E /* HomeViewController.swift in Sources */,
 				AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
+				AEFBE349289F343C0068558D /* DestinyService.swift in Sources */,
 				AE145D2C289753EF0037741C /* OAuthService.swift in Sources */,
 				AEAF54DE289ACA73004D9A15 /* TokenResponse.swift in Sources */,
 				AED3FA702898887100C6D21C /* URLSessionHTTPClient.swift in Sources */,

@@ -29,46 +29,49 @@ protocol RequestProtocol {
 }
 
 // muito provavel que eu deixe tudo em struct, vamo ver
-//enum Request: RequestProtocol {
-//
-//    case authentication(stateCallbackUniqueId: String)
-//    
-//    var headers: [String : String] {
-//        switch self {
-//        case .authentication:
-//            return [:]
-//        }
-//    }
-//
-//    var scheme: HTTPScheme {
-//        switch self {
-//        case .authentication:
-//            return .https
-//        }
-//    }
-//
-//    var path: String {
-//        switch self {
-//        case .authentication:
-//            return ""
-//        }
-//    }
-//
-//    var queriesParameters: [String : String] {
-//        switch self {
-//        case .authentication:
-//            return [:]
-//        }
-//    }
-//
-//    var httpMethod: HTTPMethod {
-//        switch self {
-//        case .authentication:
-//            return .get
-//        }
-//    }
-//
-//    var body: Data? {
-//        return nil
-//    }
-//}
+enum Request: RequestProtocol {
+
+    case getMembershipsForCurrentUser
+    
+    var headers: [String: String] {
+        switch self {
+        case .getMembershipsForCurrentUser:
+            return [:]
+        }
+    }
+
+    var scheme: HTTPScheme {
+        switch self {
+        case .getMembershipsForCurrentUser:
+            return .https
+        }
+    }
+
+    var path: String {
+        switch self {
+        case .getMembershipsForCurrentUser:
+            return "/Platform/User/GetMembershipsForCurrentUser"
+        }
+    }
+
+    var queriesParameters: [String: String] {
+        switch self {
+        case .getMembershipsForCurrentUser:
+            return [:]
+        }
+    }
+
+    var httpMethod: HTTPMethod {
+        switch self {
+        case .getMembershipsForCurrentUser:
+            return .get
+        }
+    }
+
+    var body: Data? {
+        switch self {
+        case .getMembershipsForCurrentUser:
+            return nil
+        }
+    }
+}
