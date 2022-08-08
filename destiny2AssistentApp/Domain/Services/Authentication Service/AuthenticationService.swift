@@ -9,14 +9,14 @@ import Foundation
 
 // isso ta aqui pq talvez eu possa usar no futuro
 protocol AuthenticationFlowHandler {
-    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<Void, Error>) -> Void)
+    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void)
 }
 
 protocol AuthenticationServiceProtocol: AnyObject {
     var requestedAuthorizationCallback: ((URL) -> Void)? { get set }
     
     func requestAuthorization(completion: @escaping (Result<String, ServiceError>) -> Void) throws
-    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<Void, Error>) -> Void)
+    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void)
 }
 
 class AuthenticationService: AuthenticationServiceProtocol {
@@ -64,15 +64,16 @@ extension AuthenticationService: LoginServiceProtocol {
 }
 
 extension AuthenticationService: AuthenticationFlowHandler {
-    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<Void, Error>) -> Void) {
+
+    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
         do {
             let code = try getCodeFromUrl(url: url)
             let request = TokenExchangeRequest(code: code)
             let urlRequest = try requestFactory.make(request: request)
             let serviceCompletion: (Result<TokenResponse, ServiceError>) -> Void = { result in
                 switch result {
-                case .success(_):
-                    completion(.success(()))
+                case .success(let token):
+                    completion(.success((token)))
                 case .failure(let error):
                     completion(.failure(error))
                 }

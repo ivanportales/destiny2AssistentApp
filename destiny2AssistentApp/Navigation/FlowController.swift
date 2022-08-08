@@ -32,8 +32,8 @@ class FlowController {
         navigationController.pushViewController(viewController, animated: false)
     }
     
-    func showHomeScreen() {
-        let viewController = factory.makeHomeViewController()
+    func showHomeScreen(token: TokenResponse) {
+        let viewController = factory.makeHomeViewController(token: token)
         navigationController.pushViewController(viewController, animated: true)
     }
     
@@ -48,9 +48,9 @@ class FlowController {
         authService.handleURLFromDeepLink(openURLContext.url) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
-                case .success():
+                case .success(let token):
                     self?.pop()
-                    self?.showHomeScreen()
+                    self?.showHomeScreen(token: token)
                 case .failure(let error):
                     self?.showErrorScreen(with: error)
                 }

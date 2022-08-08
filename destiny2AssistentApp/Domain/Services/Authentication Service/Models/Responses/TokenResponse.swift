@@ -11,8 +11,8 @@ struct TokenResponse: Decodable {
     let accessToken: String
     let tokenType: String
     let expiresIn: Int
-    let refreshToken: String?
-    let refreshExpiresIn: Int?
+    let refreshToken: String
+    let refreshExpiresIn: Int
     let membershipId: String
     
     enum CodingKeys: String, CodingKey {

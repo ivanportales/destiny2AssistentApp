@@ -9,11 +9,14 @@ import Foundation
 
 class DestinyService {
     
+    let tokenResponse: TokenResponse
     let service: ServiceProtocol
     let requestFactory: RequestFactory
     
-    init(service: ServiceProtocol,
+    init(tokenResponse: TokenResponse,
+         service: ServiceProtocol,
          requestFactory: RequestFactory) {
+        self.tokenResponse = tokenResponse
         self.service = service
         self.requestFactory = requestFactory
     }
@@ -22,7 +25,7 @@ class DestinyService {
 extension DestinyService: HomeServiceProtocol {
     func getUserProfileInfo(completion: @escaping (Result<String, Error>) -> Void) {
         do {
-            let request: Request = .getMembershipsForCurrentUser
+            let request: Request = .getMembershipsForCurrentUser(accessToken: tokenResponse.accessToken)
             let urlRequest = try requestFactory.make(request: request)
             let expectedcompletion: (Result<String, ServiceError>) -> Void = { result in
                 switch result {

@@ -31,12 +31,12 @@ protocol RequestProtocol {
 // muito provavel que eu deixe tudo em struct, vamo ver
 enum Request: RequestProtocol {
 
-    case getMembershipsForCurrentUser
+    case getMembershipsForCurrentUser(accessToken: String)
     
     var headers: [String: String] {
         switch self {
-        case .getMembershipsForCurrentUser:
-            return [:]
+        case .getMembershipsForCurrentUser(let accessToken):
+            return ["Authorization": "Bearer \(accessToken)"]
         }
     }
 
@@ -50,7 +50,7 @@ enum Request: RequestProtocol {
     var path: String {
         switch self {
         case .getMembershipsForCurrentUser:
-            return "/Platform/User/GetMembershipsForCurrentUser"
+            return "/Platform/User/GetMembershipsForCurrentUser/"
         }
     }
 

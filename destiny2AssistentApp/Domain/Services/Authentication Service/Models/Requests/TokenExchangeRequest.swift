@@ -8,7 +8,9 @@
 import Foundation
 
 struct TokenExchangeRequest: RequestProtocol {
-    var headers: [String : String] = ["Content-Type": "application/x-www-form-urlencoded"]
+    var headers: [String : String] = [
+        "Content-Type": "application/x-www-form-urlencoded"
+    ]
     var httpMethod: HTTPMethod = .post
     var scheme: HTTPScheme = .https
     var path: String = "/platform/app/oauth/token"
@@ -29,6 +31,7 @@ struct TokenExchangeRequest: RequestProtocol {
         bodyParameters = [
             "grant_type": "authorization_code",
             "client_id": clientId,
+            "client_secret": "Pd3fC4HqzUlLcxL1W2qr22TKTmeMwUmaVewXLCVgRMU",
             "code": code
         ]
     }

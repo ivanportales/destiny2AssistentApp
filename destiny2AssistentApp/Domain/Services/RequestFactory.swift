@@ -45,7 +45,7 @@ struct RequestFactory: RequestFactoryProtocol {
         urlComponents.host = constants.host
         urlComponents.scheme = request.scheme.rawValue
         urlComponents.path = request.path
-        urlComponents.queryItems = request.queriesParameters.map { URLQueryItem(name: $0, value: $1) }
+        urlComponents.queryItems = (request.queriesParameters.isEmpty) ? nil : request.queriesParameters.map { URLQueryItem(name: $0, value: $1) }
         
         return urlComponents
     }

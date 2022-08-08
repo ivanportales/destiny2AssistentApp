@@ -22,8 +22,10 @@ class ViewControllersFactory {
         return LoginViewController(service: authService)
     }
     
-    func makeHomeViewController() -> HomeViewController {
-        let destinyService = DestinyService(service: service, requestFactory: RequestFactory(constants: Destiny2APIConstants()))
+    func makeHomeViewController(token: TokenResponse) -> HomeViewController {
+        let destinyService = DestinyService(tokenResponse: token,
+                                            service: service,
+                                            requestFactory: RequestFactory(constants: Destiny2APIConstants()))
         return HomeViewController(service: destinyService)
     }
     
