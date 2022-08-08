@@ -14,9 +14,28 @@ protocol HTTPClientProtocol {
 
 extension URLSession: HTTPClientProtocol {
     func makeRequest(to urlRequest: URLRequest, completion: @escaping (Data?, HTTPResponseProtocol?, Error?) -> Void) {
-        dataTask(with: urlRequest) { data, response, error in
-            print(String(data: data!, encoding: .utf8))
+        dataTask(with: urlRequest) {[weak self] data, response, error in
+            self?.show(urlRequest: urlRequest)
             completion(data, response as? HTTPResponseProtocol, error)
         }.resume()
+    }
+    
+    private func show(urlRequest: URLRequest) {
+        print("----------------------------------Request----------------------------------")
+        print("HTTP Headers:")
+        urlRequest.allHTTPHeaderFields?.forEach({ (key: String, value: String) in
+            print("\(key): \(value)")
+        })
+        if let httpMethod = urlRequest.httpMethod {
+            print("HTTP Method: \(httpMethod)")
+        }
+        if let url = urlRequest.url {
+            print("URL: \(url)")
+        }
+        if let body = urlRequest.httpBody,
+           let stringRepresentation = String(data: body, encoding: .utf8) {
+            print("HTTP Body: \(stringRepresentation)")
+        }
+        print("----------------------------------End of Request----------------------------------")
     }
 }

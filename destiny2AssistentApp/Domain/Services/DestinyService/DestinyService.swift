@@ -23,19 +23,19 @@ class DestinyService {
 }
 
 extension DestinyService: HomeServiceProtocol {
-    func getUserProfileInfo(completion: @escaping (Result<String, Error>) -> Void) {
+    func getUserProfileInfo(completion: @escaping (Result<HomeServiceResponse, Error>) -> Void) {
         do {
             let request: Request = .getMembershipsForCurrentUser(accessToken: tokenResponse.accessToken)
             let urlRequest = try requestFactory.make(request: request)
-            let expectedcompletion: (Result<String, ServiceError>) -> Void = { result in
+            let expectedResultCompletion: (Result<SuccesResponse, Error>) -> Void = { result in
                 switch result {
-                case .success(let string):
-                    completion(.success(string))
+                case .success(let response):
+                    completion(.success(response.response))
                 case .failure(let error):
                     completion(.failure(error))
                 }
             }
-            service.send(request: urlRequest, completion: expectedcompletion)
+            service.send(request: urlRequest, completion: expectedResultCompletion)
         } catch let error {
             completion(.failure(error))
         }

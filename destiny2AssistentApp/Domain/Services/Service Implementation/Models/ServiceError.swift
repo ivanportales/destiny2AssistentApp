@@ -14,6 +14,10 @@ enum ServiceError: Error, Equatable {
     case noHTTPMimeTypeInformed
     case corruptedDataError
     case serializationError(message: String)
+    
+    var asError: Error {
+        return self as Error
+    }
 }
 
 extension ServiceError: LocalizedError {

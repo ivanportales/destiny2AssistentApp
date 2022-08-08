@@ -12,6 +12,7 @@
 		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
 		AE1803A128949D8700FEB082 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A028949D8700FEB082 /* Request.swift */; };
 		AE1803A928949EE000FEB082 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */; };
+		AE2398D228A1A67B00006EA3 /* HomeServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398D128A1A67B00006EA3 /* HomeServiceResponse.swift */; };
 		AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */; };
 		AEA5C060289DA0EE00A1092F /* UIView+Entensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */; };
 		AEA5C063289DA1E100A1092F /* ClosureBasedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C062289DA1E100A1092F /* ClosureBasedUIButton.swift */; };
@@ -60,6 +61,7 @@
 		AE1803A028949D8700FEB082 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = destiny2AssistentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
+		AE2398D128A1A67B00006EA3 /* HomeServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceResponse.swift; sourceTree = "<group>"; };
 		AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Entensions.swift"; sourceTree = "<group>"; };
 		AEA5C062289DA1E100A1092F /* ClosureBasedUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureBasedUIButton.swift; sourceTree = "<group>"; };
@@ -134,6 +136,14 @@
 				AEDD232A289C505200360439 /* RequestFactoryTest */,
 			);
 			path = destiny2AssistentAppTests;
+			sourceTree = "<group>";
+		};
+		AE2398D028A1A53700006EA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE2398D128A1A67B00006EA3 /* HomeServiceResponse.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		AEA5C05C289D9F4900A1092F /* Extensions */ = {
@@ -282,6 +292,7 @@
 		AEDF05CC288CDD52007DDF9E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AE2398D028A1A53700006EA3 /* Models */,
 				AEDF05BB288CDCA9007DDF9E /* HomeViewController.swift */,
 			);
 			name = Home;
@@ -500,6 +511,7 @@
 				AED3FA702898887100C6D21C /* URLSessionHTTPClient.swift in Sources */,
 				AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */,
 				AED3FA7B28988A7C00C6D21C /* DecoderError.swift in Sources */,
+				AE2398D228A1A67B00006EA3 /* HomeServiceResponse.swift in Sources */,
 				AE145D2F28975C5D0037741C /* AuthenticationService.swift in Sources */,
 				AEB41A1C28995AFD007E8237 /* AuthorizationRequest.swift in Sources */,
 			);

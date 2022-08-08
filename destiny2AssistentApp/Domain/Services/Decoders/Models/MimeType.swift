@@ -9,4 +9,5 @@ import Foundation
 
 enum MimeType: String {
     case json = "application/json"
+    //case image = "image/png"
 }

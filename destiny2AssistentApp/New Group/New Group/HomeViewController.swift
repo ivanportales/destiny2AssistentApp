@@ -8,7 +8,7 @@
 import UIKit
 
 protocol HomeServiceProtocol {
-    func getUserProfileInfo(completion: @escaping (Result<String, Error>) -> Void)
+    func getUserProfileInfo(completion: @escaping (Result<HomeServiceResponse, Error>) -> Void)
 }
 
 class HomeViewController: UIViewController {
@@ -18,8 +18,8 @@ class HomeViewController: UIViewController {
             self?.service.getUserProfileInfo { [weak self] result in
                 DispatchQueue.main.async {
                     switch result {
-                    case .success(let stringData):
-                        print(stringData)
+                    case .success(let model):
+                        print(model)
                     case .failure(let error):
                         print(error)
                         self?.presentAlert(with: "Error", andMessage: error.localizedDescription)

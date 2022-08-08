@@ -15,7 +15,7 @@ protocol AuthenticationFlowHandler {
 protocol AuthenticationServiceProtocol: AnyObject {
     var requestedAuthorizationCallback: ((URL) -> Void)? { get set }
     
-    func requestAuthorization(completion: @escaping (Result<String, ServiceError>) -> Void) throws
+    func requestAuthorization(completion: @escaping (Result<String, Error>) -> Void) throws
     func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void)
 }
 
@@ -34,7 +34,7 @@ class AuthenticationService: AuthenticationServiceProtocol {
         self.requestFactory = requestFactory
     }
     
-    func requestAuthorization(completion: @escaping (Result<String, ServiceError>) -> Void) throws {
+    func requestAuthorization(completion: @escaping (Result<String, Error>) -> Void) throws {
         do {
             let authRequest = AuthorizationRequest(stateCallbackUniqueId: state)
             let request = try requestFactory.make(request: authRequest)
@@ -70,16 +70,8 @@ extension AuthenticationService: AuthenticationFlowHandler {
             let code = try getCodeFromUrl(url: url)
             let request = TokenExchangeRequest(code: code)
             let urlRequest = try requestFactory.make(request: request)
-            let serviceCompletion: (Result<TokenResponse, ServiceError>) -> Void = { result in
-                switch result {
-                case .success(let token):
-                    completion(.success((token)))
-                case .failure(let error):
-                    completion(.failure(error))
-                }
-            }
             
-            service.send(request: urlRequest, completion: serviceCompletion)
+            service.send(request: urlRequest, completion: completion)
         } catch let error {
             completion(.failure(error))
         }
