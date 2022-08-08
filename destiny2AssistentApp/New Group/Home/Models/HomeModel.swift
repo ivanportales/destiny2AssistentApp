@@ -8,14 +8,14 @@
 import Foundation
 
 struct SuccesResponse: Codable {
-    let response: HomeServiceResponse
+    let response: HomeModel
     
     enum CodingKeys: String, CodingKey {
         case response = "Response"
     }
 }
 
-struct HomeServiceResponse: Codable {
+struct HomeModel: Codable {
     let destinyMemberships: [DestinyMerbership]
     let user: BungieUser
     
@@ -23,6 +23,12 @@ struct HomeServiceResponse: Codable {
         case destinyMemberships
         case user = "bungieNetUser"
     }
+    
+    static let emptyModel: HomeModel = .init(destinyMemberships: [],
+                                             user: .init(membershipId: "",
+                                                         displayName: "Empty Name",
+                                                         lastUpdate: "",
+                                                         userTitleDisplay: ""))
 }
 
 struct DestinyMerbership: Codable {

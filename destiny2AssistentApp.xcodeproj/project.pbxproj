@@ -12,10 +12,14 @@
 		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
 		AE1803A128949D8700FEB082 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A028949D8700FEB082 /* Request.swift */; };
 		AE1803A928949EE000FEB082 /* RequestFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */; };
-		AE2398D228A1A67B00006EA3 /* HomeServiceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398D128A1A67B00006EA3 /* HomeServiceResponse.swift */; };
+		AE2398D228A1A67B00006EA3 /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398D128A1A67B00006EA3 /* HomeModel.swift */; };
+		AE2398D428A1C1C800006EA3 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398D328A1C1C800006EA3 /* HomeViewModel.swift */; };
+		AE2398D728A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398D628A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift */; };
+		AE2398DB28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398DA28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift */; };
+		AE2398DF28A1CC5C00006EA3 /* ClosureBasedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398DD28A1CC5C00006EA3 /* ClosureBasedUIButton.swift */; };
+		AE2398E028A1CC5C00006EA3 /* NavigationItemPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398DE28A1CC5C00006EA3 /* NavigationItemPosition.swift */; };
 		AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */; };
 		AEA5C060289DA0EE00A1092F /* UIView+Entensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */; };
-		AEA5C063289DA1E100A1092F /* ClosureBasedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C062289DA1E100A1092F /* ClosureBasedUIButton.swift */; };
 		AEA5C065289DB14200A1092F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C064289DB14200A1092F /* Button.swift */; };
 		AEAF54DE289ACA73004D9A15 /* TokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAF54DD289ACA73004D9A15 /* TokenResponse.swift */; };
 		AEAF54E0289ACAA1004D9A15 /* TokenExchangeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEAF54DF289ACAA1004D9A15 /* TokenExchangeRequest.swift */; };
@@ -61,10 +65,14 @@
 		AE1803A028949D8700FEB082 /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = destiny2AssistentAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE1803A828949EE000FEB082 /* RequestFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactoryTests.swift; sourceTree = "<group>"; };
-		AE2398D128A1A67B00006EA3 /* HomeServiceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeServiceResponse.swift; sourceTree = "<group>"; };
+		AE2398D128A1A67B00006EA3 /* HomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		AE2398D328A1C1C800006EA3 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		AE2398D628A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingShowableViewControllerProtocol.swift; sourceTree = "<group>"; };
+		AE2398DA28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarShowableViewControllerProtocol.swift; sourceTree = "<group>"; };
+		AE2398DD28A1CC5C00006EA3 /* ClosureBasedUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureBasedUIButton.swift; sourceTree = "<group>"; };
+		AE2398DE28A1CC5C00006EA3 /* NavigationItemPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemPosition.swift; sourceTree = "<group>"; };
 		AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Entensions.swift"; sourceTree = "<group>"; };
-		AEA5C062289DA1E100A1092F /* ClosureBasedUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureBasedUIButton.swift; sourceTree = "<group>"; };
 		AEA5C064289DB14200A1092F /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		AEAF54DD289ACA73004D9A15 /* TokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenResponse.swift; sourceTree = "<group>"; };
 		AEAF54DF289ACAA1004D9A15 /* TokenExchangeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExchangeRequest.swift; sourceTree = "<group>"; };
@@ -141,7 +149,42 @@
 		AE2398D028A1A53700006EA3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AE2398D128A1A67B00006EA3 /* HomeServiceResponse.swift */,
+				AE2398D128A1A67B00006EA3 /* HomeModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AE2398D528A1C88500006EA3 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				AE2398D928A1CC3900006EA3 /* NavigationBarShowableViewController */,
+				AE2398D828A1CC1E00006EA3 /* LoadingShowableViewController */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		AE2398D828A1CC1E00006EA3 /* LoadingShowableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE2398D628A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift */,
+			);
+			path = LoadingShowableViewController;
+			sourceTree = "<group>";
+		};
+		AE2398D928A1CC3900006EA3 /* NavigationBarShowableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AE2398DC28A1CC5100006EA3 /* Models */,
+				AE2398DA28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift */,
+			);
+			path = NavigationBarShowableViewController;
+			sourceTree = "<group>";
+		};
+		AE2398DC28A1CC5100006EA3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE2398DD28A1CC5C00006EA3 /* ClosureBasedUIButton.swift */,
+				AE2398DE28A1CC5C00006EA3 /* NavigationItemPosition.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -158,7 +201,6 @@
 		AEA5C061289DA1D200A1092F /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AEA5C062289DA1E100A1092F /* ClosureBasedUIButton.swift */,
 				AEA5C064289DB14200A1092F /* Button.swift */,
 			);
 			path = Views;
@@ -281,6 +323,7 @@
 		AEDF05CB288CDD4C007DDF9E /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				AE2398D528A1C88500006EA3 /* Protocols */,
 				AEA5C061289DA1D200A1092F /* Views */,
 				AEA5C05C289D9F4900A1092F /* Extensions */,
 				AED3FA5F2898552A00C6D21C /* Login */,
@@ -294,6 +337,7 @@
 			children = (
 				AE2398D028A1A53700006EA3 /* Models */,
 				AEDF05BB288CDCA9007DDF9E /* HomeViewController.swift */,
+				AE2398D328A1C1C800006EA3 /* HomeViewModel.swift */,
 			);
 			name = Home;
 			path = "../New Group/Home";
@@ -492,26 +536,30 @@
 				AED3FA7728988A1400C6D21C /* DataDecoder.swift in Sources */,
 				AED3FA7C28988A7C00C6D21C /* MimeType.swift in Sources */,
 				AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */,
-				AEA5C063289DA1E100A1092F /* ClosureBasedUIButton.swift in Sources */,
 				AEB41A1F289963B4007E8237 /* AuthenticationServiceError.swift in Sources */,
 				AE1803A128949D8700FEB082 /* Request.swift in Sources */,
 				AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */,
 				AED3FA672898821C00C6D21C /* AppMainFactory.swift in Sources */,
 				AED3FA722898889600C6D21C /* HTTPResponseProtocol.swift in Sources */,
+				AE2398D428A1C1C800006EA3 /* HomeViewModel.swift in Sources */,
+				AE2398DF28A1CC5C00006EA3 /* ClosureBasedUIButton.swift in Sources */,
 				AED3FA692898823800C6D21C /* ViewControllersFactory.swift in Sources */,
 				AED3FA74289888C300C6D21C /* ServiceError.swift in Sources */,
 				AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */,
 				AEA5C065289DB14200A1092F /* Button.swift in Sources */,
 				AEDF05BC288CDCA9007DDF9E /* HomeViewController.swift in Sources */,
 				AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */,
+				AE2398D728A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
 				AEFBE349289F343C0068558D /* DestinyService.swift in Sources */,
+				AE2398DB28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift in Sources */,
+				AE2398E028A1CC5C00006EA3 /* NavigationItemPosition.swift in Sources */,
 				AE145D2C289753EF0037741C /* OAuthService.swift in Sources */,
 				AEAF54DE289ACA73004D9A15 /* TokenResponse.swift in Sources */,
 				AED3FA702898887100C6D21C /* URLSessionHTTPClient.swift in Sources */,
 				AEDF05BA288CDCA9007DDF9E /* SceneDelegate.swift in Sources */,
 				AED3FA7B28988A7C00C6D21C /* DecoderError.swift in Sources */,
-				AE2398D228A1A67B00006EA3 /* HomeServiceResponse.swift in Sources */,
+				AE2398D228A1A67B00006EA3 /* HomeModel.swift in Sources */,
 				AE145D2F28975C5D0037741C /* AuthenticationService.swift in Sources */,
 				AEB41A1C28995AFD007E8237 /* AuthorizationRequest.swift in Sources */,
 			);

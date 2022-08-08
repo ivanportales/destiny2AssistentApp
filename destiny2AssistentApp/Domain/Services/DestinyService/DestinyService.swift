@@ -23,7 +23,7 @@ class DestinyService {
 }
 
 extension DestinyService: HomeServiceProtocol {
-    func getUserProfileInfo(completion: @escaping (Result<HomeServiceResponse, Error>) -> Void) {
+    func getUserProfileInfo(completion: @escaping (Result<HomeModel, Error>) -> Void) {
         do {
             let request: Request = .getMembershipsForCurrentUser(accessToken: tokenResponse.accessToken)
             let urlRequest = try requestFactory.make(request: request)

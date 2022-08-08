@@ -8,33 +8,26 @@
 import UIKit
 
 protocol HomeServiceProtocol {
-    func getUserProfileInfo(completion: @escaping (Result<HomeServiceResponse, Error>) -> Void)
+    func getUserProfileInfo(completion: @escaping (Result<HomeModel, Error>) -> Void)
 }
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,
+                          LoadingShowableViewControllerProtocol,
+                          NavigationBarShowableViewControllerProtocol {
+    var loadingView: UIActivityIndicatorView?
     
     lazy var requestButton: Button = {
         let requestButton = Button(title: "Request") { [weak self] _ in
-            self?.service.getUserProfileInfo { [weak self] result in
-                DispatchQueue.main.async {
-                    switch result {
-                    case .success(let model):
-                        print(model)
-                    case .failure(let error):
-                        print(error)
-                        self?.presentAlert(with: "Error", andMessage: error.localizedDescription)
-                    }
-                }
-            }
+            self?.viewModel.getUserProfileInfo()
         }
         
         return requestButton
     }()
     
-    private let service: HomeServiceProtocol
+    private let viewModel: HomeViewModel
     
-    init(service: HomeServiceProtocol) {
-        self.service = service
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -47,17 +40,12 @@ class HomeViewController: UIViewController {
         setupView()
         setupViewsHierarchy()
         setupViewsConstraints()
-        service.getUserProfileInfo { [weak self] result in
-            DispatchQueue.main.async {
-                switch result {
-                case .success(let stringData):
-                    print(stringData)
-                case .failure(let error):
-                    print(error)
-                    self?.presentAlert(with: "Error", andMessage: error.localizedDescription)
-                }
-            }
-        }
+        viewModel.getUserProfileInfo()
+    }
+    
+    private func setupNavigationBarTitle() {
+        title = viewModel.screenTitle
+        setupNavigationBar(withLargeTitle: true)
     }
 
     private func setupView() {
@@ -75,13 +63,66 @@ class HomeViewController: UIViewController {
             requestButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
         ])
     }
+    
+    private func setupBindings() {
+        viewModel.stateChangedCallback = { [weak self] state in
+            switch state {
+            case .loading:
+                self?.handleLoading()
+            case .content:
+                self?.handleContent()
+            case .error(message: let message):
+                self?.handleError(withMessage: message)
+            }
+        }
+    }
+    
+    private func handleLoading() {
+        setupLoadingView()
+    }
+    
+    private func handleContent() {
+        if let _ = loadingView {
+            disableLoadingView()
+        }
+        
+    }
+    
+    private func handleError(withMessage message: String) {
+        let alertButton = AlertButton(title: "Reload") { [weak self] in
+            self?.viewModel.getUserProfileInfo()
+        }
+        presentAlert(with: "Error", andMessage: message, button: alertButton)
+    }
+}
+
+struct AlertButton {
+    let title: String
+    let action: () -> Void
 }
 
 extension UIViewController {
-    func presentAlert(with title: String, andMessage message: String) {
+    func presentAlert(with title: String, andMessage message: String, button: AlertButton? = nil) {
         let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: .destructive, handler: nil)
-        alertViewController.addAction(action)
+        setupAction(withTitle: "Ok", style: .destructive, handler: nil, for: alertViewController)
+        if let button = button {
+            setupAction(withTitle: button.title, style: .destructive, handler: button.action, for: alertViewController)
+        }
         present(alertViewController, animated: true, completion: nil)
+    }
+    
+    private func setupAction(withTitle title: String?,
+                             style: UIAlertAction.Style,
+                             handler: (() -> Void)? = nil,
+                             for alertViewController: UIAlertController) {
+        var handlerCallback: ((UIAlertAction) -> Void)?
+        if let handler = handler {
+            handlerCallback = { _ in
+                handler()
+            }
+        }
+        
+        let action = UIAlertAction(title: title, style: style, handler: handlerCallback)
+        alertViewController.addAction(action)
     }
 }

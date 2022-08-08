@@ -26,7 +26,9 @@ class ViewControllersFactory {
         let destinyService = DestinyService(tokenResponse: token,
                                             service: service,
                                             requestFactory: RequestFactory(constants: Destiny2APIConstants()))
-        return HomeViewController(service: destinyService)
+        let viewModel = HomeViewModel(service: destinyService)
+        
+        return HomeViewController(viewModel: viewModel)
     }
     
     func makeWebView(with url: URL) -> SFSafariViewController {
