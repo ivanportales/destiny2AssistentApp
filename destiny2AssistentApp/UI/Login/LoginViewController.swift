@@ -69,7 +69,6 @@ class LoginViewController: UIViewController {
             loginButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
-
         ])
     }
 }

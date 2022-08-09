@@ -12,7 +12,7 @@ import UIKit
 extension UIView {
     static func makeUILabelWith(text: String,
                                 font: UIFont? = .systemFont(ofSize: 15), // botar a nova font
-                                color: UIColor = .white) -> UILabel {
+                                color: UIColor = .black) -> UILabel {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = text

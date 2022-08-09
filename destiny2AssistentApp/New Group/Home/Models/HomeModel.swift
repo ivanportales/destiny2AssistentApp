@@ -16,27 +16,29 @@ struct SuccesResponse: Codable {
 }
 
 struct HomeModel: Codable {
-    let destinyMemberships: [DestinyMerbership]
+    let destinyAccounts: [DestinyAccount]
     let user: BungieUser
     
     enum CodingKeys: String, CodingKey {
-        case destinyMemberships
+        case destinyAccounts = "destinyMemberships"
         case user = "bungieNetUser"
     }
     
-    static let emptyModel: HomeModel = .init(destinyMemberships: [],
+    static let emptyModel: HomeModel = .init(destinyAccounts: [],
                                              user: .init(membershipId: "",
                                                          displayName: "Empty Name",
                                                          lastUpdate: "",
                                                          userTitleDisplay: ""))
 }
 
-struct DestinyMerbership: Codable {
+struct DestinyAccount: Codable {
+    let id: String
     let displayName: String
     let iconPath: String
     let accountType: AccountType
     
     enum CodingKeys: String, CodingKey {
+        case id = "membershipId"
         case displayName
         case iconPath
         case accountType = "membershipType"

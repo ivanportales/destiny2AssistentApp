@@ -14,6 +14,7 @@ protocol HomeServiceProtocol {
 class HomeViewController: UIViewController,
                           LoadingShowableViewControllerProtocol,
                           NavigationBarShowableViewControllerProtocol {
+    
     var loadingView: UIActivityIndicatorView?
     
     lazy var requestButton: Button = {
@@ -22,6 +23,17 @@ class HomeViewController: UIViewController,
         }
         
         return requestButton
+    }()
+    
+    lazy var accountsTableView: UITableView = {
+        let accountsTableView = UITableView()
+        accountsTableView.translatesAutoresizingMaskIntoConstraints = false
+        accountsTableView.register(DestinyAccountTableViewCell.self,
+                                   forCellReuseIdentifier: DestinyAccountTableViewCell.cellIdentifier)
+        accountsTableView.delegate = self
+        accountsTableView.dataSource = self
+        
+        return accountsTableView
     }()
     
     private let viewModel: HomeViewModel
@@ -37,9 +49,11 @@ class HomeViewController: UIViewController,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupNavigationBarTitle()
         setupView()
         setupViewsHierarchy()
         setupViewsConstraints()
+        setupBindings()
         viewModel.getUserProfileInfo()
     }
     
@@ -49,14 +63,17 @@ class HomeViewController: UIViewController,
     }
 
     private func setupView() {
-        view.backgroundColor = .red
+        view.backgroundColor = .white
     }
     
     private func setupViewsHierarchy() {
+        view.addSubview(accountsTableView)
         view.addSubview(requestButton)
     }
     
     private func setupViewsConstraints() {
+        accountsTableView.constraintViewToSuperview()
+        
         NSLayoutConstraint.activate([
             requestButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             requestButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
@@ -66,13 +83,15 @@ class HomeViewController: UIViewController,
     
     private func setupBindings() {
         viewModel.stateChangedCallback = { [weak self] state in
-            switch state {
-            case .loading:
-                self?.handleLoading()
-            case .content:
-                self?.handleContent()
-            case .error(message: let message):
-                self?.handleError(withMessage: message)
+            DispatchQueue.main.async {
+                switch state {
+                case .loading:
+                    self?.handleLoading()
+                case .content:
+                    self?.handleContent()
+                case .error(message: let message):
+                    self?.handleError(withMessage: message)
+                }
             }
         }
     }
@@ -85,7 +104,8 @@ class HomeViewController: UIViewController,
         if let _ = loadingView {
             disableLoadingView()
         }
-        
+        title = viewModel.screenTitle
+        accountsTableView.reloadData()
     }
     
     private func handleError(withMessage message: String) {
@@ -96,33 +116,21 @@ class HomeViewController: UIViewController,
     }
 }
 
-struct AlertButton {
-    let title: String
-    let action: () -> Void
-}
-
-extension UIViewController {
-    func presentAlert(with title: String, andMessage message: String, button: AlertButton? = nil) {
-        let alertViewController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        setupAction(withTitle: "Ok", style: .destructive, handler: nil, for: alertViewController)
-        if let button = button {
-            setupAction(withTitle: button.title, style: .destructive, handler: button.action, for: alertViewController)
-        }
-        present(alertViewController, animated: true, completion: nil)
+extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return viewModel.model.destinyAccounts.count
     }
     
-    private func setupAction(withTitle title: String?,
-                             style: UIAlertAction.Style,
-                             handler: (() -> Void)? = nil,
-                             for alertViewController: UIAlertController) {
-        var handlerCallback: ((UIAlertAction) -> Void)?
-        if let handler = handler {
-            handlerCallback = { _ in
-                handler()
-            }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DestinyAccountTableViewCell.cellIdentifier,
+                                                       for: indexPath) as? DestinyAccountTableViewCell else {
+            return UITableViewCell()
         }
         
-        let action = UIAlertAction(title: title, style: style, handler: handlerCallback)
-        alertViewController.addAction(action)
+        cell.set(account: viewModel.model.destinyAccounts[indexPath.item])
+        
+        return cell
     }
 }
+
+extension HomeViewController: UITableViewDelegate {}

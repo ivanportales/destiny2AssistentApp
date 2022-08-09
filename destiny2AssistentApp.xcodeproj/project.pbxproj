@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE0CF23F28A298B90040B908 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0CF23E28A298B90040B908 /* UIViewController+Extensions.swift */; };
+		AE0CF24228A29A880040B908 /* DestinyAccountTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0CF24128A29A880040B908 /* DestinyAccountTableViewCell.swift */; };
 		AE145D2C289753EF0037741C /* OAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE145D2B289753EF0037741C /* OAuthService.swift */; };
 		AE145D2F28975C5D0037741C /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE145D2E28975C5D0037741C /* AuthenticationService.swift */; };
 		AE18039F28949BED00FEB082 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE18039E28949BED00FEB082 /* APIConstants.swift */; };
@@ -59,6 +61,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AE0CF23E28A298B90040B908 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		AE0CF24128A29A880040B908 /* DestinyAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyAccountTableViewCell.swift; sourceTree = "<group>"; };
 		AE145D2B289753EF0037741C /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
 		AE145D2E28975C5D0037741C /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		AE18039E28949BED00FEB082 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -121,6 +125,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AE0CF24028A29A440040B908 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AE0CF24128A29A880040B908 /* DestinyAccountTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AE0CF24328A29DBD0040B908 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE1803A028949D8700FEB082 /* Request.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AE145D2D28975C4E0037741C /* Authentication Service */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,6 +214,7 @@
 			children = (
 				AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */,
 				AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */,
+				AE0CF23E28A298B90040B908 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -335,6 +356,7 @@
 		AEDF05CC288CDD52007DDF9E /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				AE0CF24028A29A440040B908 /* Views */,
 				AE2398D028A1A53700006EA3 /* Models */,
 				AEDF05BB288CDCA9007DDF9E /* HomeViewController.swift */,
 				AE2398D328A1C1C800006EA3 /* HomeViewModel.swift */,
@@ -380,7 +402,6 @@
 		AEF06EB9289C983000044080 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				AE1803A028949D8700FEB082 /* Request.swift */,
 				AED3FA73289888C300C6D21C /* ServiceError.swift */,
 			);
 			path = Models;
@@ -389,6 +410,7 @@
 		AEFBE347289F341C0068558D /* DestinyService */ = {
 			isa = PBXGroup;
 			children = (
+				AE0CF24328A29DBD0040B908 /* Models */,
 				AEFBE348289F343C0068558D /* DestinyService.swift */,
 			);
 			path = DestinyService;
@@ -551,7 +573,9 @@
 				AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */,
 				AE2398D728A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
+				AE0CF23F28A298B90040B908 /* UIViewController+Extensions.swift in Sources */,
 				AEFBE349289F343C0068558D /* DestinyService.swift in Sources */,
+				AE0CF24228A29A880040B908 /* DestinyAccountTableViewCell.swift in Sources */,
 				AE2398DB28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift in Sources */,
 				AE2398E028A1CC5C00006EA3 /* NavigationItemPosition.swift in Sources */,
 				AE145D2C289753EF0037741C /* OAuthService.swift in Sources */,
