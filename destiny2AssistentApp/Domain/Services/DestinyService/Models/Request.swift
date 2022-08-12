@@ -64,7 +64,7 @@ enum Request: RequestProtocol {
         case .getMembershipsForCurrentUser:
             return [:]
         case .getProfile:
-            return [:]
+            return ["components": "\(ProfileComponents.characters.rawValue)"]
         }
     }
 

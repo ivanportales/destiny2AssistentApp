@@ -40,6 +40,8 @@
 		AED3FA7C28988A7C00C6D21C /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7A28988A7C00C6D21C /* MimeType.swift */; };
 		AED4465428A5DBDD0036EE37 /* DestinyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465328A5DBDD0036EE37 /* DestinyAccount.swift */; };
 		AED4465628A5DBEB0036EE37 /* BungieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465528A5DBEB0036EE37 /* BungieUser.swift */; };
+		AED4465928A5E5830036EE37 /* ProfileComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465828A5E5830036EE37 /* ProfileComponents.swift */; };
+		AED4465B28A5E6060036EE37 /* DestinyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465A28A5E6060036EE37 /* DestinyCharacter.swift */; };
 		AEDD232D289C516600360439 /* EnumRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD232C289C516600360439 /* EnumRequestMock.swift */; };
 		AEDD2330289C586600360439 /* StructRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD232F289C586600360439 /* StructRequestMock.swift */; };
 		AEDD2332289C587A00360439 /* APIConstantsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD2331289C587A00360439 /* APIConstantsMock.swift */; };
@@ -97,6 +99,8 @@
 		AED3FA7A28988A7C00C6D21C /* MimeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
 		AED4465328A5DBDD0036EE37 /* DestinyAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyAccount.swift; sourceTree = "<group>"; };
 		AED4465528A5DBEB0036EE37 /* BungieUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BungieUser.swift; sourceTree = "<group>"; };
+		AED4465828A5E5830036EE37 /* ProfileComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponents.swift; sourceTree = "<group>"; };
+		AED4465A28A5E6060036EE37 /* DestinyCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyCharacter.swift; sourceTree = "<group>"; };
 		AEDD232C289C516600360439 /* EnumRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumRequestMock.swift; sourceTree = "<group>"; };
 		AEDD232F289C586600360439 /* StructRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructRequestMock.swift; sourceTree = "<group>"; };
 		AEDD2331289C587A00360439 /* APIConstantsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstantsMock.swift; sourceTree = "<group>"; };
@@ -298,10 +302,20 @@
 		AED4465228A5DBCF0036EE37 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				AED61EB828A6F9ED00FE90B8 /* Destiny Character */,
 				AED4465328A5DBDD0036EE37 /* DestinyAccount.swift */,
 				AED4465528A5DBEB0036EE37 /* BungieUser.swift */,
+				AED4465828A5E5830036EE37 /* ProfileComponents.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		AED61EB828A6F9ED00FE90B8 /* Destiny Character */ = {
+			isa = PBXGroup;
+			children = (
+				AED4465A28A5E6060036EE37 /* DestinyCharacter.swift */,
+			);
+			path = "Destiny Character";
 			sourceTree = "<group>";
 		};
 		AEDD232A289C505200360439 /* RequestFactoryTest */ = {
@@ -575,6 +589,7 @@
 				AEB41A1F289963B4007E8237 /* AuthenticationServiceError.swift in Sources */,
 				AE1803A128949D8700FEB082 /* Request.swift in Sources */,
 				AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */,
+				AED4465B28A5E6060036EE37 /* DestinyCharacter.swift in Sources */,
 				AED3FA672898821C00C6D21C /* AppMainFactory.swift in Sources */,
 				AED3FA722898889600C6D21C /* HTTPResponseProtocol.swift in Sources */,
 				AE2398D428A1C1C800006EA3 /* HomeViewModel.swift in Sources */,
@@ -590,6 +605,7 @@
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
 				AE0CF23F28A298B90040B908 /* UIViewController+Extensions.swift in Sources */,
 				AEFBE349289F343C0068558D /* DestinyService.swift in Sources */,
+				AED4465928A5E5830036EE37 /* ProfileComponents.swift in Sources */,
 				AE0CF24228A29A880040B908 /* DestinyAccountTableViewCell.swift in Sources */,
 				AE2398DB28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift in Sources */,
 				AE2398E028A1CC5C00006EA3 /* NavigationItemPosition.swift in Sources */,
