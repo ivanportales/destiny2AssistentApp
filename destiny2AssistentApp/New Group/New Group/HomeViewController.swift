@@ -11,6 +11,10 @@ protocol HomeServiceProtocol {
     func getUserProfileInfo(completion: @escaping (Result<HomeModel, Error>) -> Void)
 }
 
+protocol HomeViewControllerDelegate: AnyObject {
+    func showDetails(_ viewController: HomeViewController, of account: DestinyAccount)
+}
+
 class HomeViewController: UIViewController,
                           LoadingShowableViewControllerProtocol,
                           NavigationBarShowableViewControllerProtocol {
@@ -37,6 +41,7 @@ class HomeViewController: UIViewController,
     }()
     
     private let viewModel: HomeViewModel
+    weak var delegate: HomeViewControllerDelegate?
     
     init(viewModel: HomeViewModel) {
         self.viewModel = viewModel
@@ -117,6 +122,11 @@ class HomeViewController: UIViewController,
 }
 
 extension HomeViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let account = viewModel.model.destinyAccounts[indexPath.item]
+        delegate?.showDetails(self, of: account)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.model.destinyAccounts.count
     }

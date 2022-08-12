@@ -38,6 +38,8 @@
 		AED3FA7728988A1400C6D21C /* DataDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7628988A1400C6D21C /* DataDecoder.swift */; };
 		AED3FA7B28988A7C00C6D21C /* DecoderError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7928988A7C00C6D21C /* DecoderError.swift */; };
 		AED3FA7C28988A7C00C6D21C /* MimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED3FA7A28988A7C00C6D21C /* MimeType.swift */; };
+		AED4465428A5DBDD0036EE37 /* DestinyAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465328A5DBDD0036EE37 /* DestinyAccount.swift */; };
+		AED4465628A5DBEB0036EE37 /* BungieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465528A5DBEB0036EE37 /* BungieUser.swift */; };
 		AEDD232D289C516600360439 /* EnumRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD232C289C516600360439 /* EnumRequestMock.swift */; };
 		AEDD2330289C586600360439 /* StructRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD232F289C586600360439 /* StructRequestMock.swift */; };
 		AEDD2332289C587A00360439 /* APIConstantsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD2331289C587A00360439 /* APIConstantsMock.swift */; };
@@ -93,6 +95,8 @@
 		AED3FA7628988A1400C6D21C /* DataDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataDecoder.swift; sourceTree = "<group>"; };
 		AED3FA7928988A7C00C6D21C /* DecoderError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DecoderError.swift; sourceTree = "<group>"; };
 		AED3FA7A28988A7C00C6D21C /* MimeType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MimeType.swift; sourceTree = "<group>"; };
+		AED4465328A5DBDD0036EE37 /* DestinyAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyAccount.swift; sourceTree = "<group>"; };
+		AED4465528A5DBEB0036EE37 /* BungieUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BungieUser.swift; sourceTree = "<group>"; };
 		AEDD232C289C516600360439 /* EnumRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumRequestMock.swift; sourceTree = "<group>"; };
 		AEDD232F289C586600360439 /* StructRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructRequestMock.swift; sourceTree = "<group>"; };
 		AEDD2331289C587A00360439 /* APIConstantsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstantsMock.swift; sourceTree = "<group>"; };
@@ -174,13 +178,13 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		AE2398D528A1C88500006EA3 /* Protocols */ = {
+		AE2398D528A1C88500006EA3 /* Enhancements Protocols */ = {
 			isa = PBXGroup;
 			children = (
 				AE2398D928A1CC3900006EA3 /* NavigationBarShowableViewController */,
 				AE2398D828A1CC1E00006EA3 /* LoadingShowableViewController */,
 			);
-			path = Protocols;
+			path = "Enhancements Protocols";
 			sourceTree = "<group>";
 		};
 		AE2398D828A1CC1E00006EA3 /* LoadingShowableViewController */ = {
@@ -291,6 +295,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		AED4465228A5DBCF0036EE37 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AED4465328A5DBDD0036EE37 /* DestinyAccount.swift */,
+				AED4465528A5DBEB0036EE37 /* BungieUser.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		AEDD232A289C505200360439 /* RequestFactoryTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -344,7 +357,7 @@
 		AEDF05CB288CDD4C007DDF9E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				AE2398D528A1C88500006EA3 /* Protocols */,
+				AE2398D528A1C88500006EA3 /* Enhancements Protocols */,
 				AEA5C061289DA1D200A1092F /* Views */,
 				AEA5C05C289D9F4900A1092F /* Extensions */,
 				AED3FA5F2898552A00C6D21C /* Login */,
@@ -433,6 +446,7 @@
 		AEFDC7AD288E1C9000BB5E31 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				AED4465228A5DBCF0036EE37 /* Models */,
 				AED3FA65289881F100C6D21C /* Factories */,
 				AEDF05CD288CDD5E007DDF9E /* Assets */,
 				AEFDC7AC288E1C8700BB5E31 /* Services */,
@@ -571,6 +585,7 @@
 				AEA5C065289DB14200A1092F /* Button.swift in Sources */,
 				AEDF05BC288CDCA9007DDF9E /* HomeViewController.swift in Sources */,
 				AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */,
+				AED4465428A5DBDD0036EE37 /* DestinyAccount.swift in Sources */,
 				AE2398D728A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
 				AE0CF23F28A298B90040B908 /* UIViewController+Extensions.swift in Sources */,
@@ -578,6 +593,7 @@
 				AE0CF24228A29A880040B908 /* DestinyAccountTableViewCell.swift in Sources */,
 				AE2398DB28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift in Sources */,
 				AE2398E028A1CC5C00006EA3 /* NavigationItemPosition.swift in Sources */,
+				AED4465628A5DBEB0036EE37 /* BungieUser.swift in Sources */,
 				AE145D2C289753EF0037741C /* OAuthService.swift in Sources */,
 				AEAF54DE289ACA73004D9A15 /* TokenResponse.swift in Sources */,
 				AED3FA702898887100C6D21C /* URLSessionHTTPClient.swift in Sources */,

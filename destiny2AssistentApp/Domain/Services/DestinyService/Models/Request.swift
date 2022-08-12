@@ -28,21 +28,24 @@ protocol RequestProtocol {
     var body: Data? { get }
 }
 
-// muito provavel que eu deixe tudo em struct, vamo ver
 enum Request: RequestProtocol {
 
     case getMembershipsForCurrentUser(accessToken: String)
+    case getProfile(accessToken: String, account: DestinyAccount)
     
     var headers: [String: String] {
         switch self {
         case .getMembershipsForCurrentUser(let accessToken):
+            return ["Authorization": "Bearer \(accessToken)"]
+        case .getProfile(let accessToken, _):
             return ["Authorization": "Bearer \(accessToken)"]
         }
     }
 
     var scheme: HTTPScheme {
         switch self {
-        case .getMembershipsForCurrentUser:
+        case .getMembershipsForCurrentUser,
+             .getProfile:
             return .https
         }
     }
@@ -51,6 +54,8 @@ enum Request: RequestProtocol {
         switch self {
         case .getMembershipsForCurrentUser:
             return "/Platform/User/GetMembershipsForCurrentUser/"
+        case .getProfile(_, let account):
+            return "/Destiny2/\(account.accountType.rawValue)/Profile/\(account.id)/"
         }
     }
 
@@ -58,19 +63,23 @@ enum Request: RequestProtocol {
         switch self {
         case .getMembershipsForCurrentUser:
             return [:]
+        case .getProfile:
+            return [:]
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .getMembershipsForCurrentUser:
+        case .getMembershipsForCurrentUser,
+             .getProfile:
             return .get
         }
     }
 
     var body: Data? {
         switch self {
-        case .getMembershipsForCurrentUser:
+        case .getMembershipsForCurrentUser,
+             .getProfile:
             return nil
         }
     }

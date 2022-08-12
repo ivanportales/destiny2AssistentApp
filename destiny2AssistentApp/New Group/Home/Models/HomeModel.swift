@@ -30,28 +30,3 @@ struct HomeModel: Codable {
                                                          lastUpdate: "",
                                                          userTitleDisplay: ""))
 }
-
-struct DestinyAccount: Codable {
-    let id: String
-    let displayName: String
-    let iconPath: String
-    let accountType: AccountType
-    
-    enum CodingKeys: String, CodingKey {
-        case id = "membershipId"
-        case displayName
-        case iconPath
-        case accountType = "membershipType"
-    }
-}
-
-enum AccountType: Int, Codable {
-    case steam = 3
-}
-
-struct BungieUser: Codable {
-    let membershipId: String
-    let displayName: String
-    let lastUpdate: String
-    let userTitleDisplay: String
-}
