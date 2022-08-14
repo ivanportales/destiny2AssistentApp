@@ -23,9 +23,9 @@ struct Characters: Codable {
     }
 }
 
-typealias CharactersDataValues = [String: DestinyCharacter]
-
 struct CharactersData: Codable {
+    typealias CharactersDataValues = [String: DestinyCharacter]
+    
     let charactersDataValues: CharactersDataValues
     
     enum CodingKeys: String, CodingKey {
@@ -35,49 +35,60 @@ struct CharactersData: Codable {
 
 struct DestinyCharacter: Codable {
     let id: String
+    let level: Int
     let lastPlayedDate: String
-    let raceType: DestinyRaceType
-    let classType: DestinyClassType
-    let genderType: DestinyGenderType
+    let race: DestinyRace
+    let classType: DestinyClass
+    let gender: DestinyGender
     let emblemBackgroundPath: String
-    let stats: CharacterStats
-
+    let stats: DestinyEntityStats
+    
     enum CodingKeys: String, CodingKey {
         case id = "characterId"
+        case level = "light"
         case lastPlayedDate = "dateLastPlayed"
-        case raceType
+        case race = "raceType"
         case classType
-        case genderType
+        case gender = "genderType"
         case emblemBackgroundPath
         case stats
     }
 }
 
-enum DestinyRaceType: Int, Codable {
+enum DestinyRace: Int, Codable {
     case human = 0
     case awoken
     case exo
     case unknown
 }
 
-enum DestinyClassType: Int, Codable {
+enum DestinyClass: Int, Codable {
     case titan = 0
     case hunter
     case warlock
     case unknown
 }
 
-enum DestinyGenderType: Int, Codable {
+enum DestinyGender: Int, Codable {
     case male = 0
     case female
     case unknown
 }
 
-enum DestinyCharacterStat: String, Codable {
-    case mobility = "2996146975"
-    case resilience = "392767087"
-    case recovery = "1943323491"
-    case discipline = "1735777505"
+struct DestinyEntityStats: Codable {
+    let mobility: Int
+    let resilience: Int
+    let recovery: Int
+    let discipline: Int
+    let intellect: Int
+    let strength: Int
+    
+    enum CodingKeys: String, CodingKey {
+        case mobility = "2996146975"
+        case resilience = "392767087"
+        case recovery = "1943323491"
+        case discipline = "1735777505"
+        case intellect = "144602215"
+        case strength = "4244567218"
+    }
 }
-
-typealias CharacterStats = [String: Int]
