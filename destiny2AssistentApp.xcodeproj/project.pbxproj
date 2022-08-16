@@ -20,6 +20,7 @@
 		AE2398DB28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398DA28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift */; };
 		AE2398DF28A1CC5C00006EA3 /* ClosureBasedUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398DD28A1CC5C00006EA3 /* ClosureBasedUIButton.swift */; };
 		AE2398E028A1CC5C00006EA3 /* NavigationItemPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2398DE28A1CC5C00006EA3 /* NavigationItemPosition.swift */; };
+		AE2B63BA28AA8BBD0003353F /* BadgeInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE2B63B928AA8BBD0003353F /* BadgeInfoView.swift */; };
 		AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */; };
 		AEA5C060289DA0EE00A1092F /* UIView+Entensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */; };
 		AEA5C065289DB14200A1092F /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA5C064289DB14200A1092F /* Button.swift */; };
@@ -79,6 +80,7 @@
 		AE2398DA28A1CC4C00006EA3 /* NavigationBarShowableViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarShowableViewControllerProtocol.swift; sourceTree = "<group>"; };
 		AE2398DD28A1CC5C00006EA3 /* ClosureBasedUIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosureBasedUIButton.swift; sourceTree = "<group>"; };
 		AE2398DE28A1CC5C00006EA3 /* NavigationItemPosition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationItemPosition.swift; sourceTree = "<group>"; };
+		AE2B63B928AA8BBD0003353F /* BadgeInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeInfoView.swift; sourceTree = "<group>"; };
 		AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extensions.swift"; sourceTree = "<group>"; };
 		AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Entensions.swift"; sourceTree = "<group>"; };
 		AEA5C064289DB14200A1092F /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				AEA5C064289DB14200A1092F /* Button.swift */,
+				AE2B63B928AA8BBD0003353F /* BadgeInfoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -587,6 +590,7 @@
 				AED3FA7C28988A7C00C6D21C /* MimeType.swift in Sources */,
 				AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */,
 				AEB41A1F289963B4007E8237 /* AuthenticationServiceError.swift in Sources */,
+				AE2B63BA28AA8BBD0003353F /* BadgeInfoView.swift in Sources */,
 				AE1803A128949D8700FEB082 /* Request.swift in Sources */,
 				AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */,
 				AED4465B28A5E6060036EE37 /* DestinyCharacter.swift in Sources */,

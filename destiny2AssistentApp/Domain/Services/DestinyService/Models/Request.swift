@@ -30,12 +30,12 @@ protocol RequestProtocol {
 
 enum Request: RequestProtocol {
 
-    case getMembershipsForCurrentUser(accessToken: String)
+    case getDestiny2AccountsForCurrentUser(accessToken: String)
     case getProfile(accessToken: String, account: DestinyAccount)
     
     var headers: [String: String] {
         switch self {
-        case .getMembershipsForCurrentUser(let accessToken):
+        case .getDestiny2AccountsForCurrentUser(let accessToken):
             return ["Authorization": "Bearer \(accessToken)"]
         case .getProfile(let accessToken, _):
             return ["Authorization": "Bearer \(accessToken)"]
@@ -44,7 +44,7 @@ enum Request: RequestProtocol {
 
     var scheme: HTTPScheme {
         switch self {
-        case .getMembershipsForCurrentUser,
+        case .getDestiny2AccountsForCurrentUser,
              .getProfile:
             return .https
         }
@@ -52,7 +52,7 @@ enum Request: RequestProtocol {
 
     var path: String {
         switch self {
-        case .getMembershipsForCurrentUser:
+        case .getDestiny2AccountsForCurrentUser:
             return "/Platform/User/GetMembershipsForCurrentUser/"
         case .getProfile(_, let account):
             return "/Destiny2/\(account.accountType.rawValue)/Profile/\(account.id)/"
@@ -61,7 +61,7 @@ enum Request: RequestProtocol {
 
     var queriesParameters: [String: String] {
         switch self {
-        case .getMembershipsForCurrentUser:
+        case .getDestiny2AccountsForCurrentUser:
             return [:]
         case .getProfile:
             return ["components": "\(ProfileComponents.characters.rawValue)"]
@@ -70,7 +70,7 @@ enum Request: RequestProtocol {
 
     var httpMethod: HTTPMethod {
         switch self {
-        case .getMembershipsForCurrentUser,
+        case .getDestiny2AccountsForCurrentUser,
              .getProfile:
             return .get
         }
@@ -78,7 +78,7 @@ enum Request: RequestProtocol {
 
     var body: Data? {
         switch self {
-        case .getMembershipsForCurrentUser,
+        case .getDestiny2AccountsForCurrentUser,
              .getProfile:
             return nil
         }

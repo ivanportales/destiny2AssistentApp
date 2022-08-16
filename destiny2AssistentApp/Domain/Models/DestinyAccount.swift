@@ -24,3 +24,25 @@ struct DestinyAccount: Codable {
         case accountType = "membershipType"
     }
 }
+
+extension DestinyAccount: BadgeInfoModel {
+    var backgroundImagePath: String? {
+        return nil
+    }
+    
+    var iconImagePath: String {
+        return "steamLogo"
+    }
+    
+    var title: String {
+        return displayName
+    }
+    
+    var subtitle: String? {
+        return "Steam"
+    }
+    
+    var trailingInfo: String? {
+        nil
+    }
+}

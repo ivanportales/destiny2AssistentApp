@@ -17,10 +17,6 @@ struct GetProfileResponse: Codable {
 
 struct Characters: Codable {
     let characters: CharactersData
-    
-    enum CodingKeys: String, CodingKey {
-        case characters
-    }
 }
 
 struct CharactersData: Codable {

@@ -11,9 +11,9 @@ class DestinyAccountTableViewCell: UITableViewCell {
     
     static let cellIdentifier = "destinyAccountTableViewCell"
     
-    lazy var nameLabel: UILabel = {
-        let nameLabel = UIView.makeUILabelWith(text: "")
-        return nameLabel
+    lazy var badgeInfoView: BadgeInfoView = {
+        let badgeInfoView = BadgeInfoView()
+        return badgeInfoView
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String!) {
@@ -28,21 +28,22 @@ class DestinyAccountTableViewCell: UITableViewCell {
     }
     
     func set(account: DestinyAccount) {
-        nameLabel.text = account.displayName
+        badgeInfoView.set(model: account)
     }
         
     private func setupView() {
-        contentView.backgroundColor = .white
+        contentView.backgroundColor = .clear
     }
     
     private func setupViewHierarchy() {
-        contentView.addSubview(nameLabel)
+        contentView.addSubview(badgeInfoView)
     }
     
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            nameLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
-        ])
+        badgeInfoView.constraintViewToSuperview()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 }

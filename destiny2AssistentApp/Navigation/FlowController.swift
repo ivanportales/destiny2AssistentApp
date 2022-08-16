@@ -7,6 +7,12 @@
 
 import UIKit
 
+class MockedHomeService: HomeServiceProtocol {
+    func getUserProfileInfo(completion: @escaping (Result<HomeModel, Error>) -> Void) {
+        completion(.success(.init(destinyAccounts: [.init(id: "", displayName: "Kvothe Bloodless", iconPath: "steamLogo", accountType: .steam)], user: .init(membershipId: "", displayName: "Kvotinho", lastUpdate: "", userTitleDisplay: ""))))
+    }
+}
+
 class FlowController {
     
     private let navigationController: UINavigationController
@@ -28,8 +34,8 @@ class FlowController {
     }
     
     func start() {
-        let viewController = factory.makeLoginViewController()
-        navigationController.pushViewController(viewController, animated: false)
+        //let viewController = factory.makeLoginViewController()
+        navigationController.pushViewController(HomeViewController(viewModel: .init(service: MockedHomeService())), animated: false)
     }
     
     func showHomeScreen(token: TokenResponse) {
