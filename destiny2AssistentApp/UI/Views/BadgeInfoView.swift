@@ -48,6 +48,18 @@ class BadgeInfoView: UIView {
         return informationStackView
     }()
     
+    lazy var titleLabel: UILabel = {
+        let titleLabel = UIView.makeUILabelWith(text: "")
+        return titleLabel
+    }()
+    
+    lazy var subtitleLabel: UILabel = {
+        let subtitleLabel = UIView.makeUILabelWith(text: "")
+        subtitleLabel.isHidden = true
+        
+        return subtitleLabel
+    }()
+    
     lazy var trailingInformationView: UILabel = {
         let trailingInformationView = UIView.makeUILabelWith(text: "")
         trailingInformationView.isHidden = true
@@ -67,6 +79,7 @@ class BadgeInfoView: UIView {
     }
     
     func set(model: BadgeInfoModel) {
+        clearView()
         if let backgorundImagePath = model.backgroundImagePath {
             setupImage(fromPath: backgorundImagePath, to: backgroundImageView)
         }
@@ -87,6 +100,8 @@ class BadgeInfoView: UIView {
     private func setupViewHierarchy() {
         addSubview(backgroundImageView)
         addSubview(containerStackView)
+        informationStackView.addArrangedSubview(titleLabel)
+        informationStackView.addArrangedSubview(subtitleLabel)
         containerStackView.addArrangedSubview(imageView)
         containerStackView.addArrangedSubview(informationStackView)
         containerStackView.addArrangedSubview(trailingInformationView)
@@ -107,14 +122,27 @@ class BadgeInfoView: UIView {
     }
     
     private func setupInformationStackView(withModel model: BadgeInfoModel) {
-        informationStackView.addArrangedSubview(UIView.makeUILabelWith(text: model.title))
+        titleLabel.text = model.title
         if let subtitle = model.subtitle {
-            informationStackView.addArrangedSubview(UIView.makeUILabelWith(text: subtitle))
+            subtitleLabel.text = subtitle
+            subtitleLabel.isHidden = false
         }
     }
     
     private func setupTrailing(info: String) {
         trailingInformationView.text = info
         trailingInformationView.isHidden = false
+    }
+    
+    private func clearView() {
+        imageView.image = nil
+        imageView.isHidden = true
+        
+        trailingInformationView.text = ""
+        trailingInformationView.isHidden = true
+        
+        titleLabel.text = ""
+        subtitleLabel.text = ""
+        subtitleLabel.isHidden = true
     }
 }

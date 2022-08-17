@@ -40,7 +40,14 @@ class DestinyAccountTableViewCell: UITableViewCell {
     }
     
     private func setupConstraints() {
-        badgeInfoView.constraintViewToSuperview()
+        let topConstraint = badgeInfoView.topAnchor.constraint(equalTo: contentView.topAnchor)
+        topConstraint.priority = .init(rawValue: 999)
+        NSLayoutConstraint.activate([
+            topConstraint,
+            badgeInfoView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            badgeInfoView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            badgeInfoView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+        ])
     }
     
     override func prepareForReuse() {

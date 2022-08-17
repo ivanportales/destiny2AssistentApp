@@ -247,32 +247,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A496D9C3-1E8A-40B8-8C15-A034476CE603"
+            uuid = "FBB97EDC-9772-4850-8F2A-ACADF29F7123"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "destiny2AssistentApp/New Group/New Group/HomeViewController.swift"
+            filePath = "destiny2AssistentApp/New Group/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "handleContent()"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "getUserProfileInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "5542846E-ED57-4769-867F-7EFEFE0710C0"
+            uuid = "7138D83C-0C86-419C-8D63-C08CE8AF3D93"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "destiny2AssistentApp/UI/Views/BadgeInfoView.swift"
+            filePath = "destiny2AssistentApp/New Group/Home/HomeViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "setupInformationStackView(withModel:)"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "getUserProfileInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
