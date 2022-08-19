@@ -32,7 +32,7 @@ class BadgeInfoView: UIView {
         return containerStackView
     }()
     
-    lazy var imageView: UIImageView = {
+    lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.constraintView(height: 80, andWidth: 80)
@@ -42,25 +42,28 @@ class BadgeInfoView: UIView {
     }()
     
     lazy var informationStackView: UIStackView = {
-        let informationStackView = UIView.makeUIStackWith(distribution: .fillProportionally,
+        let informationStackView = UIView.makeUIStackWith(distribution: .fillEqually,
                                                           alignment: .leading,
-                                                          spacing: 10)
+                                                          spacing: 5)
         return informationStackView
     }()
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UIView.makeUILabelWith(text: "")
+        titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
+
         return titleLabel
     }()
     
     lazy var subtitleLabel: UILabel = {
         let subtitleLabel = UIView.makeUILabelWith(text: "")
         subtitleLabel.isHidden = true
+        subtitleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
         
         return subtitleLabel
     }()
     
-    lazy var trailingInformationView: UILabel = {
+    lazy var trailingLabel: UILabel = {
         let trailingInformationView = UIView.makeUILabelWith(text: "")
         trailingInformationView.isHidden = true
         
@@ -84,7 +87,7 @@ class BadgeInfoView: UIView {
             setupImage(fromPath: backgorundImagePath, to: backgroundImageView)
         }
         
-        setupImage(fromPath: model.iconImagePath, to: imageView)
+        setupImage(fromPath: model.iconImagePath, to: iconImageView)
         setupInformationStackView(withModel: model)
         
         if let info = model.trailingInfo {
@@ -102,9 +105,9 @@ class BadgeInfoView: UIView {
         addSubview(containerStackView)
         informationStackView.addArrangedSubview(titleLabel)
         informationStackView.addArrangedSubview(subtitleLabel)
-        containerStackView.addArrangedSubview(imageView)
+        containerStackView.addArrangedSubview(iconImageView)
         containerStackView.addArrangedSubview(informationStackView)
-        containerStackView.addArrangedSubview(trailingInformationView)
+        containerStackView.addArrangedSubview(trailingLabel)
 
     }
     
@@ -130,19 +133,19 @@ class BadgeInfoView: UIView {
     }
     
     private func setupTrailing(info: String) {
-        trailingInformationView.text = info
-        trailingInformationView.isHidden = false
+        trailingLabel.text = info
+        trailingLabel.isHidden = false
     }
     
     private func clearView() {
-        imageView.image = nil
-        imageView.isHidden = true
-        
-        trailingInformationView.text = ""
-        trailingInformationView.isHidden = true
+        iconImageView.image = nil
+        iconImageView.isHidden = true
         
         titleLabel.text = ""
         subtitleLabel.text = ""
         subtitleLabel.isHidden = true
+        
+        trailingLabel.text = ""
+        trailingLabel.isHidden = true
     }
 }
