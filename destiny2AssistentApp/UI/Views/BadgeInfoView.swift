@@ -149,3 +149,75 @@ class BadgeInfoView: UIView {
         trailingLabel.isHidden = true
     }
 }
+
+fileprivate class TitleAndLabelView: UIView {
+    
+    lazy var titleLabel: UILabel = {
+        let titleLabel = UIView.makeUILabelWith(text: "")
+        return titleLabel
+    }()
+    
+    lazy var subtitleLabel: UILabel = {
+        let subtitleLabel = UIView.makeUILabelWith(text: "")
+        return subtitleLabel
+    }()
+    
+    let title: String
+    let subtitle: String?
+    
+    init(title: String,
+         subtitle: String?) {
+        self.title = title
+        self.subtitle = subtitle
+        super.init(frame: .zero)
+        setupView()
+        setupViewsHierarchy()
+        setupViewsConstraints()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func setupView() {
+        backgroundColor = .clear
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupViewsHierarchy() {
+        addSubview(titleLabel)
+        if let _ = subtitle {
+            addSubview(subtitleLabel)
+        }
+    }
+    
+    private func setupViewsConstraints() {
+        guard let _ = subtitle else {
+            setupViewConstraintsWithSubtitle()
+            return
+        }
+        setupViewConstraintsWithoutSubtitle()
+    }
+    
+    private func setupViewConstraintsWithSubtitle() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+    private func setupViewConstraintsWithoutSubtitle() {
+        NSLayoutConstraint.activate([
+            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+            titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+}
