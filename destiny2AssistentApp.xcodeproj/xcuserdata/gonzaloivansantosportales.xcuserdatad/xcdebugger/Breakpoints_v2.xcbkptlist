@@ -247,32 +247,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FBB97EDC-9772-4850-8F2A-ACADF29F7123"
+            uuid = "591A8917-6585-4D42-9E33-E567F111E99F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "destiny2AssistentApp/New Group/Home/HomeViewModel.swift"
+            filePath = "destiny2AssistentApp/UI/Views/BadgeInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "getUserProfileInfo()"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "setup(title:subtitle:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7138D83C-0C86-419C-8D63-C08CE8AF3D93"
+            uuid = "2C88E2CC-819A-498C-B6CF-63C4900F8FFB"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "destiny2AssistentApp/New Group/Home/HomeViewModel.swift"
+            filePath = "destiny2AssistentApp/UI/Views/BadgeInfoView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "getUserProfileInfo()"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "setupViewsConstraints(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FACBE4CA-D4F2-49B5-8CCD-EE25CF86B315"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "destiny2AssistentApp/UI/Views/BadgeInfoView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "199"
+            endingLineNumber = "199"
+            landmarkName = "setupViewConstraintsWithoutSubtitle()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B846732A-CE72-4726-BE7E-44808511F858"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "destiny2AssistentApp/UI/Views/BadgeInfoView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "180"
+            endingLineNumber = "180"
+            landmarkName = "setupViewsConstraints(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

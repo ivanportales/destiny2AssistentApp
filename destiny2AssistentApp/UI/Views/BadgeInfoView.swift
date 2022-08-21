@@ -48,19 +48,9 @@ class BadgeInfoView: UIView {
         return informationStackView
     }()
     
-    lazy var titleLabel: UILabel = {
-        let titleLabel = UIView.makeUILabelWith(text: "")
-        titleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
-
-        return titleLabel
-    }()
-    
-    lazy var subtitleLabel: UILabel = {
-        let subtitleLabel = UIView.makeUILabelWith(text: "")
-        subtitleLabel.isHidden = true
-        subtitleLabel.setContentHuggingPriority(.defaultHigh, for: .vertical)
-        
-        return subtitleLabel
+    lazy var titleAndSubtitleView: TitleAndLabelView = {
+        let titleAndSubtitleView = TitleAndLabelView()
+        return titleAndSubtitleView
     }()
     
     lazy var trailingLabel: UILabel = {
@@ -103,10 +93,8 @@ class BadgeInfoView: UIView {
     private func setupViewHierarchy() {
         addSubview(backgroundImageView)
         addSubview(containerStackView)
-        informationStackView.addArrangedSubview(titleLabel)
-        informationStackView.addArrangedSubview(subtitleLabel)
         containerStackView.addArrangedSubview(iconImageView)
-        containerStackView.addArrangedSubview(informationStackView)
+        containerStackView.addArrangedSubview(titleAndSubtitleView)
         containerStackView.addArrangedSubview(trailingLabel)
 
     }
@@ -125,11 +113,7 @@ class BadgeInfoView: UIView {
     }
     
     private func setupInformationStackView(withModel model: BadgeInfoModel) {
-        titleLabel.text = model.title
-        if let subtitle = model.subtitle {
-            subtitleLabel.text = subtitle
-            subtitleLabel.isHidden = false
-        }
+        titleAndSubtitleView.setup(title: model.title, subtitle: model.subtitle)
     }
     
     private func setupTrailing(info: String) {
@@ -140,17 +124,13 @@ class BadgeInfoView: UIView {
     private func clearView() {
         iconImageView.image = nil
         iconImageView.isHidden = true
-        
-        titleLabel.text = ""
-        subtitleLabel.text = ""
-        subtitleLabel.isHidden = true
-        
+            
         trailingLabel.text = ""
         trailingLabel.isHidden = true
     }
 }
 
-fileprivate class TitleAndLabelView: UIView {
+class TitleAndLabelView: UIView {
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UIView.makeUILabelWith(text: "")
@@ -162,17 +142,9 @@ fileprivate class TitleAndLabelView: UIView {
         return subtitleLabel
     }()
     
-    let title: String
-    let subtitle: String?
-    
-    init(title: String,
-         subtitle: String?) {
-        self.title = title
-        self.subtitle = subtitle
+    init() {
         super.init(frame: .zero)
         setupView()
-        setupViewsHierarchy()
-        setupViewsConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -184,19 +156,30 @@ fileprivate class TitleAndLabelView: UIView {
         translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func setupViewsHierarchy() {
+    func setup(title: String,
+               subtitle: String?) {
+        clearView()
+        titleLabel.text = title
+        if let subtitle = subtitle {
+            subtitleLabel.text = subtitle
+        }
+        setupViewsHierarchy(subtitle)
+        setupViewsConstraints(subtitle)
+    }
+    
+    private func setupViewsHierarchy(_ subtitle: String?) {
         addSubview(titleLabel)
         if let _ = subtitle {
             addSubview(subtitleLabel)
         }
     }
     
-    private func setupViewsConstraints() {
+    private func setupViewsConstraints(_ subtitle: String?) {
         guard let _ = subtitle else {
-            setupViewConstraintsWithSubtitle()
+            setupViewConstraintsWithoutSubtitle()
             return
         }
-        setupViewConstraintsWithoutSubtitle()
+        setupViewConstraintsWithSubtitle()
     }
     
     private func setupViewConstraintsWithSubtitle() {
@@ -208,7 +191,7 @@ fileprivate class TitleAndLabelView: UIView {
             subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
-            subtitleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10)
         ])
     }
     
@@ -219,5 +202,10 @@ fileprivate class TitleAndLabelView: UIView {
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             titleLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
+    }
+    
+    private func clearView() {
+        titleLabel.removeFromSuperview()
+        subtitleLabel.removeFromSuperview()
     }
 }
