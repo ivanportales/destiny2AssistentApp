@@ -31,7 +31,7 @@ extension DestinyAccount: BadgeInfoModel {
     }
     
     var iconImagePath: String {
-        return "steamLogo"
+        return "/img/profile/avatars/default_avatar.gif"
     }
     
     var title: String {

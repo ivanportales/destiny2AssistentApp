@@ -27,8 +27,8 @@ class DestinyAccountTableViewCell: UITableViewCell {
         fatalError("This view does not support Storyboard!")
     }
     
-    func set(account: DestinyAccount) {
-        badgeInfoView.set(model: account)
+    func set(viewModel: BadgeInfoViewModel) {
+        badgeInfoView.set(viewModel: viewModel)
     }
         
     private func setupView() {

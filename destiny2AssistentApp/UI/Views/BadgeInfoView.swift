@@ -15,6 +15,22 @@ protocol BadgeInfoModel {
     var trailingInfo: String? { get }
 }
 
+class BadgeInfoViewModel {
+
+    let model: BadgeInfoModel
+    let service: ImageService
+    
+    init(model: BadgeInfoModel,
+         service: ImageService) {
+        self.model = model
+        self.service = service
+    }
+    
+    func getImageData(completion: @escaping (Result<Data, Error>) -> Void) {
+        service.getImageData(from: model.iconImagePath, completion: completion)
+    }
+}
+
 class BadgeInfoView: UIView {
     
     lazy var backgroundImageView: UIImageView = {
@@ -36,7 +52,7 @@ class BadgeInfoView: UIView {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.constraintView(height: 80, andWidth: 80)
-        imageView.isHidden = true
+        imageView.backgroundColor = .lightGray
         
         return imageView
     }()
@@ -60,6 +76,8 @@ class BadgeInfoView: UIView {
         return trailingInformationView
     }()
     
+    var viewModel: BadgeInfoViewModel?
+    
     init() {
         super.init(frame: .zero)
         setupView()
@@ -71,16 +89,17 @@ class BadgeInfoView: UIView {
         fatalError("This view does not support Storyboard!")
     }
     
-    func set(model: BadgeInfoModel) {
+    func set(viewModel: BadgeInfoViewModel) {
         clearView()
-        if let backgorundImagePath = model.backgroundImagePath {
+        self.viewModel = viewModel
+        if let backgorundImagePath = viewModel.model.backgroundImagePath {
             setupImage(fromPath: backgorundImagePath, to: backgroundImageView)
         }
         
-        setupImage(fromPath: model.iconImagePath, to: iconImageView)
-        setupInformationStackView(withModel: model)
+        setupImage(fromPath: viewModel.model.iconImagePath, to: iconImageView)
+        setupInformationStackView(withModel: viewModel.model)
         
-        if let info = model.trailingInfo {
+        if let info = viewModel.model.trailingInfo {
             setupTrailing(info: info)
         }
     }
@@ -108,8 +127,17 @@ class BadgeInfoView: UIView {
     }
     
     private func setupImage(fromPath imagePath: String, to imageView: UIImageView) {
-        imageView.image = UIImage(named: imagePath)
-        imageView.isHidden = false
+        viewModel?.getImageData(completion: { result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let imageData):
+                    imageView.image = UIImage(data: imageData)
+                    imageView.isHidden = false
+                case .failure:
+                    imageView.image = nil
+                }
+            }
+        })
     }
     
     private func setupInformationStackView(withModel model: BadgeInfoModel) {

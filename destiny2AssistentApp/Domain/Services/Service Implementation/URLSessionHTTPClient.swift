@@ -14,8 +14,8 @@ protocol HTTPClientProtocol {
 
 extension URLSession: HTTPClientProtocol {
     func makeRequest(to urlRequest: URLRequest, completion: @escaping (Data?, HTTPResponseProtocol?, Error?) -> Void) {
+        show(urlRequest: urlRequest)
         dataTask(with: urlRequest) {[weak self] data, response, error in
-            self?.show(urlRequest: urlRequest)
             completion(data, response as? HTTPResponseProtocol, error)
         }.resume()
     }

@@ -8,8 +8,21 @@
 import UIKit
 
 class MockedHomeService: HomeServiceProtocol {
+    
+    let service = Service(httpClient: URLSession.shared, decoder: DataDecoder())
+    
+    func getImageData(from path: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        do {
+            let request: Request = .getImage(path: path)
+            let urlRequest = try RequestFactory(constants: Destiny2APIConstants()).make(request: request)
+            service.send(request: urlRequest, completion: completion)
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+    
     func getUserProfileInfo(completion: @escaping (Result<HomeModel, Error>) -> Void) {
-        completion(.success(.init(destinyAccounts: [.init(id: "", displayName: "Kvothe Bloodless", iconPath: "steamLogo", accountType: .steam)], user: .init(membershipId: "", displayName: "Kvotinho", lastUpdate: "", userTitleDisplay: ""))))
+        completion(.success(.init(destinyAccounts: [.init(id: "", displayName: "Kvothe Bloodless", iconPath: "/img/theme/bungienet/icons/steamLogo.png", accountType: .steam)], user: .init(membershipId: "", displayName: "Kvotinho", lastUpdate: "", userTitleDisplay: ""))))
     }
 }
 

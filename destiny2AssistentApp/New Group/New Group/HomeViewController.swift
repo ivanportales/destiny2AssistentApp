@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol HomeServiceProtocol {
+protocol HomeServiceProtocol: ImageService {
     func getUserProfileInfo(completion: @escaping (Result<HomeModel, Error>) -> Void)
 }
 
@@ -137,7 +137,7 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.set(account: viewModel.model.destinyAccounts[indexPath.item])
+        cell.set(viewModel: viewModel.cellsViewModels[indexPath.item])
         
         return cell
     }

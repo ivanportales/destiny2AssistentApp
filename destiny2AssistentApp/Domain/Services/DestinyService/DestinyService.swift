@@ -41,3 +41,19 @@ extension DestinyService: HomeServiceProtocol {
         }
     }
 }
+
+extension DestinyService: ImageService {
+    func getImageData(from path: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        do {
+            let request: Request = .getImage(path: path)
+            let urlRequest = try requestFactory.make(request: request)
+            service.send(request: urlRequest, completion: completion)
+        } catch let error {
+            completion(.failure(error))
+        }
+    }
+}
+
+protocol ImageService {
+    func getImageData(from path: String, completion: @escaping (Result<Data, Error>) -> Void)
+}

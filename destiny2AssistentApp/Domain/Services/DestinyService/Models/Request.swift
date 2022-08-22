@@ -32,6 +32,7 @@ enum Request: RequestProtocol {
 
     case getDestiny2AccountsForCurrentUser(accessToken: String)
     case getProfile(accessToken: String, account: DestinyAccount)
+    case getImage(path: String)
     
     var headers: [String: String] {
         switch self {
@@ -39,13 +40,16 @@ enum Request: RequestProtocol {
             return ["Authorization": "Bearer \(accessToken)"]
         case .getProfile(let accessToken, _):
             return ["Authorization": "Bearer \(accessToken)"]
+        case .getImage:
+            return [:]
         }
     }
 
     var scheme: HTTPScheme {
         switch self {
         case .getDestiny2AccountsForCurrentUser,
-             .getProfile:
+             .getProfile,
+             .getImage:
             return .https
         }
     }
@@ -56,6 +60,8 @@ enum Request: RequestProtocol {
             return "/Platform/User/GetMembershipsForCurrentUser/"
         case .getProfile(_, let account):
             return "/Destiny2/\(account.accountType.rawValue)/Profile/\(account.id)/"
+        case .getImage(path: let path):
+            return path
         }
     }
 
@@ -65,13 +71,16 @@ enum Request: RequestProtocol {
             return [:]
         case .getProfile:
             return ["components": "\(ProfileComponents.characters.rawValue)"]
+        case .getImage:
+            return [:]
         }
     }
 
     var httpMethod: HTTPMethod {
         switch self {
         case .getDestiny2AccountsForCurrentUser,
-             .getProfile:
+             .getProfile,
+             .getImage:
             return .get
         }
     }
@@ -79,7 +88,8 @@ enum Request: RequestProtocol {
     var body: Data? {
         switch self {
         case .getDestiny2AccountsForCurrentUser,
-             .getProfile:
+             .getProfile,
+             .getImage:
             return nil
         }
     }

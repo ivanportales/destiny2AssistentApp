@@ -24,6 +24,12 @@ class DataDecoder: DataDecoderProtocol {
             switch mimeType {
             case .json:
                 return try JSONDecoder().decode(type, from: data)
+            case .imagePNG,
+                 .imageGif:
+                guard let imageData = data as? ResultType else {
+                    throw DecoderError.typeMismatch(type: Data.self)
+                }
+                return imageData
             }
         } catch let error as DecodingError {
             switch error {
