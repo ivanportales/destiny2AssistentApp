@@ -9,6 +9,13 @@ import Foundation
 
 enum AccountType: Int, Codable {
     case steam = 3
+    
+    var typeString: String {
+        switch self {
+        case .steam:
+            return "Steam"
+        }
+    }
 }
 
 struct DestinyAccount: Codable {
@@ -31,7 +38,7 @@ extension DestinyAccount: BadgeInfoModel {
     }
     
     var iconImagePath: String {
-        return "/img/profile/avatars/default_avatar.gif"
+        return iconPath
     }
     
     var title: String {
@@ -39,7 +46,7 @@ extension DestinyAccount: BadgeInfoModel {
     }
     
     var subtitle: String? {
-        return "Steam"
+        return accountType.typeString
     }
     
     var trailingInfo: String? {
