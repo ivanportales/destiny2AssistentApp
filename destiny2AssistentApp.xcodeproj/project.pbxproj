@@ -43,6 +43,11 @@
 		AED4465628A5DBEB0036EE37 /* BungieUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465528A5DBEB0036EE37 /* BungieUser.swift */; };
 		AED4465928A5E5830036EE37 /* ProfileComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465828A5E5830036EE37 /* ProfileComponents.swift */; };
 		AED4465B28A5E6060036EE37 /* DestinyCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AED4465A28A5E6060036EE37 /* DestinyCharacter.swift */; };
+		AEDA7A1428B4697A00466397 /* Destiny2ItalicFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDA7A1028B4697A00466397 /* Destiny2ItalicFont.ttf */; };
+		AEDA7A1528B4697A00466397 /* Destiny2BoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDA7A1128B4697A00466397 /* Destiny2BoldFont.ttf */; };
+		AEDA7A1628B4697A00466397 /* Destiny2SemiBoldFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDA7A1228B4697A00466397 /* Destiny2SemiBoldFont.ttf */; };
+		AEDA7A1728B4697A00466397 /* Destiny2NormalFont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AEDA7A1328B4697A00466397 /* Destiny2NormalFont.ttf */; };
+		AEDA7A1928B46A3100466397 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDA7A1828B46A3100466397 /* UIFont+Extensions.swift */; };
 		AEDD232D289C516600360439 /* EnumRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD232C289C516600360439 /* EnumRequestMock.swift */; };
 		AEDD2330289C586600360439 /* StructRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD232F289C586600360439 /* StructRequestMock.swift */; };
 		AEDD2332289C587A00360439 /* APIConstantsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDD2331289C587A00360439 /* APIConstantsMock.swift */; };
@@ -103,6 +108,11 @@
 		AED4465528A5DBEB0036EE37 /* BungieUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BungieUser.swift; sourceTree = "<group>"; };
 		AED4465828A5E5830036EE37 /* ProfileComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileComponents.swift; sourceTree = "<group>"; };
 		AED4465A28A5E6060036EE37 /* DestinyCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyCharacter.swift; sourceTree = "<group>"; };
+		AEDA7A1028B4697A00466397 /* Destiny2ItalicFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Destiny2ItalicFont.ttf; sourceTree = "<group>"; };
+		AEDA7A1128B4697A00466397 /* Destiny2BoldFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Destiny2BoldFont.ttf; sourceTree = "<group>"; };
+		AEDA7A1228B4697A00466397 /* Destiny2SemiBoldFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Destiny2SemiBoldFont.ttf; sourceTree = "<group>"; };
+		AEDA7A1328B4697A00466397 /* Destiny2NormalFont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Destiny2NormalFont.ttf; sourceTree = "<group>"; };
+		AEDA7A1828B46A3100466397 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		AEDD232C289C516600360439 /* EnumRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumRequestMock.swift; sourceTree = "<group>"; };
 		AEDD232F289C586600360439 /* StructRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructRequestMock.swift; sourceTree = "<group>"; };
 		AEDD2331289C587A00360439 /* APIConstantsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstantsMock.swift; sourceTree = "<group>"; };
@@ -225,6 +235,7 @@
 				AEA5C05D289D9F6500A1092F /* UIImage+Extensions.swift */,
 				AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */,
 				AE0CF23E28A298B90040B908 /* UIViewController+Extensions.swift */,
+				AEDA7A1828B46A3100466397 /* UIFont+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,6 +332,17 @@
 			path = "Destiny Character";
 			sourceTree = "<group>";
 		};
+		AEDA7A0F28B4696C00466397 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				AEDA7A1128B4697A00466397 /* Destiny2BoldFont.ttf */,
+				AEDA7A1028B4697A00466397 /* Destiny2ItalicFont.ttf */,
+				AEDA7A1328B4697A00466397 /* Destiny2NormalFont.ttf */,
+				AEDA7A1228B4697A00466397 /* Destiny2SemiBoldFont.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		AEDD232A289C505200360439 /* RequestFactoryTest */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +420,7 @@
 		AEDF05CD288CDD5E007DDF9E /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				AEDA7A0F28B4696C00466397 /* Font */,
 				AEDF05C0288CDCAA007DDF9E /* Assets.xcassets */,
 				AEDF05C2288CDCAA007DDF9E /* LaunchScreen.storyboard */,
 			);
@@ -561,6 +584,10 @@
 			files = (
 				AEDF05C4288CDCAA007DDF9E /* LaunchScreen.storyboard in Resources */,
 				AEDF05C1288CDCAA007DDF9E /* Assets.xcassets in Resources */,
+				AEDA7A1728B4697A00466397 /* Destiny2NormalFont.ttf in Resources */,
+				AEDA7A1628B4697A00466397 /* Destiny2SemiBoldFont.ttf in Resources */,
+				AEDA7A1528B4697A00466397 /* Destiny2BoldFont.ttf in Resources */,
+				AEDA7A1428B4697A00466397 /* Destiny2ItalicFont.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -591,6 +618,7 @@
 				AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */,
 				AEB41A1F289963B4007E8237 /* AuthenticationServiceError.swift in Sources */,
 				AE2B63BA28AA8BBD0003353F /* BadgeInfoView.swift in Sources */,
+				AEDA7A1928B46A3100466397 /* UIFont+Extensions.swift in Sources */,
 				AE1803A128949D8700FEB082 /* Request.swift in Sources */,
 				AED3FA6428985B4500C6D21C /* FlowController.swift in Sources */,
 				AED4465B28A5E6060036EE37 /* DestinyCharacter.swift in Sources */,

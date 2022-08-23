@@ -57,13 +57,6 @@ class BadgeInfoView: UIView {
         return imageView
     }()
     
-    lazy var informationStackView: UIStackView = {
-        let informationStackView = UIView.makeUIStackWith(distribution: .fillEqually,
-                                                          alignment: .leading,
-                                                          spacing: 5)
-        return informationStackView
-    }()
-    
     lazy var titleAndSubtitleView: TitleAndLabelView = {
         let titleAndSubtitleView = TitleAndLabelView()
         return titleAndSubtitleView
@@ -162,11 +155,15 @@ class TitleAndLabelView: UIView {
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UIView.makeUILabelWith(text: "")
+        titleLabel.font = .normalFont(sized: 20)
+        
         return titleLabel
     }()
     
     lazy var subtitleLabel: UILabel = {
         let subtitleLabel = UIView.makeUILabelWith(text: "")
+        subtitleLabel.font = .normalItalicFont(sized: 15)
+        
         return subtitleLabel
     }()
     
@@ -216,7 +213,7 @@ class TitleAndLabelView: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
             subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10)

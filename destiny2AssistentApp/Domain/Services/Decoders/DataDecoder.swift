@@ -27,7 +27,7 @@ class DataDecoder: DataDecoderProtocol {
             case .imagePNG,
                  .imageGif:
                 guard let imageData = data as? ResultType else {
-                    throw DecoderError.typeMismatch(type: Data.self)
+                    throw DecoderError.typeMismatch(type: ResultType.self)
                 }
                 return imageData
             }
