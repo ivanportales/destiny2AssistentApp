@@ -15,4 +15,12 @@ extension UIFont {
     static func normalItalicFont(sized size: CGFloat) -> UIFont {
         return UIFont(name: "Futura-BookOblique", size: size)!
     }
+    
+    static func semiBoldFont(sized size: CGFloat) -> UIFont {
+        return UIFont(name: "Futura Medium BT", size: size)!
+    }
+    
+    static func boldFont(sized size: CGFloat) -> UIFont {
+        return UIFont(name: "Futura Bold Condensed BT", size: size)!
+    }
 }

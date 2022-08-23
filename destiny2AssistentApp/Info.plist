@@ -4,6 +4,8 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>Destiny2BoldFont.ttf</string>
+		<string>Destiny2SemiBoldFont.ttf</string>
 		<string>Destiny2ItalicFont.ttf</string>
 		<string>Destiny2NormalFont.ttf</string>
 	</array>
