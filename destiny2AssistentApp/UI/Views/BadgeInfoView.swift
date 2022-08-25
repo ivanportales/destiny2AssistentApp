@@ -113,10 +113,10 @@ class BadgeInfoView: UIView {
     
     private func setupViewsConstraints() {
         backgroundImageView.constraintViewToSuperview()
-        containerStackView.constraintViewToSuperview(top: 10,
-                                                     leading: 10,
-                                                     trailing: -10,
-                                                     bottom: -10)
+        containerStackView.constraintViewToSuperview(top: 15,
+                                                     leading: 15,
+                                                     trailing: -15,
+                                                     bottom: -15)
     }
     
     private func setupImage(fromPath imagePath: String, to imageView: UIImageView) {
@@ -155,7 +155,7 @@ class TitleAndLabelView: UIView {
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UIView.makeUILabelWith(text: "")
-        titleLabel.font = .normalFont(sized: 20)
+        titleLabel.font = .semiBoldFont(sized: 20)
         
         return titleLabel
     }()
@@ -213,7 +213,7 @@ class TitleAndLabelView: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 5),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10)
