@@ -45,14 +45,15 @@ class BadgeInfoView: UIView {
         let containerStackView = UIView.makeUIStackWith(axis: .horizontal,
                                                         distribution: .fillProportionally,
                                                         spacing: 10)
+        containerStackView.backgroundColor = .clear
+        
         return containerStackView
     }()
     
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.constraintView(height: 80, andWidth: 80)
-        imageView.backgroundColor = .lightGray
+        imageView.constraintView(height: 60, andWidth: 60)
         
         return imageView
     }()
@@ -155,14 +156,14 @@ class TitleAndLabelView: UIView {
     
     lazy var titleLabel: UILabel = {
         let titleLabel = UIView.makeUILabelWith(text: "")
-        titleLabel.font = .semiBoldFont(sized: 20)
+        titleLabel.font = .boldSystemFont(ofSize: 17)
         
         return titleLabel
     }()
     
     lazy var subtitleLabel: UILabel = {
         let subtitleLabel = UIView.makeUILabelWith(text: "")
-        subtitleLabel.font = .normalItalicFont(sized: 15)
+        subtitleLabel.font = .boldSystemFont(ofSize: 16)
         
         return subtitleLabel
     }()
@@ -209,7 +210,7 @@ class TitleAndLabelView: UIView {
     
     private func setupViewConstraintsWithSubtitle() {
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: topAnchor),
+            titleLabel.topAnchor.constraint(equalTo: topAnchor, constant: 2),
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             

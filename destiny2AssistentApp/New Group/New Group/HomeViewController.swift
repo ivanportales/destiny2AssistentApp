@@ -36,6 +36,8 @@ class HomeViewController: UIViewController,
                                    forCellReuseIdentifier: DestinyAccountTableViewCell.cellIdentifier)
         accountsTableView.delegate = self
         accountsTableView.dataSource = self
+        accountsTableView.backgroundColor = .appGray
+        accountsTableView.tintColor = .appGray
         
         return accountsTableView
     }()
@@ -68,7 +70,7 @@ class HomeViewController: UIViewController,
     }
 
     private func setupView() {
-        view.backgroundColor = .white
+        view.backgroundColor = .appGray
     }
     
     private func setupViewsHierarchy() {

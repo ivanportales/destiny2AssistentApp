@@ -56,6 +56,7 @@
 		AEDF05BC288CDCA9007DDF9E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEDF05BB288CDCA9007DDF9E /* HomeViewController.swift */; };
 		AEDF05C1288CDCAA007DDF9E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AEDF05C0288CDCAA007DDF9E /* Assets.xcassets */; };
 		AEDF05C4288CDCAA007DDF9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AEDF05C2288CDCAA007DDF9E /* LaunchScreen.storyboard */; };
+		AEF4798C28B7CAB1002765C0 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEF4798B28B7CAB1002765C0 /* UIColor+Extensions.swift */; };
 		AEFBE349289F343C0068558D /* DestinyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFBE348289F343C0068558D /* DestinyService.swift */; };
 		AEFDC7AF288E1CB600BB5E31 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */; };
 /* End PBXBuildFile section */
@@ -123,6 +124,7 @@
 		AEDF05C0288CDCAA007DDF9E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AEDF05C3288CDCAA007DDF9E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AEDF05C5288CDCAA007DDF9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AEF4798B28B7CAB1002765C0 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		AEFBE348289F343C0068558D /* DestinyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyService.swift; sourceTree = "<group>"; };
 		AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -236,6 +238,7 @@
 				AEA5C05F289DA0EE00A1092F /* UIView+Entensions.swift */,
 				AE0CF23E28A298B90040B908 /* UIViewController+Extensions.swift */,
 				AEDA7A1828B46A3100466397 /* UIFont+Extensions.swift */,
+				AEF4798B28B7CAB1002765C0 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				AEA5C05E289D9F6500A1092F /* UIImage+Extensions.swift in Sources */,
 				AED4465428A5DBDD0036EE37 /* DestinyAccount.swift in Sources */,
 				AE2398D728A1C88F00006EA3 /* LoadingShowableViewControllerProtocol.swift in Sources */,
+				AEF4798C28B7CAB1002765C0 /* UIColor+Extensions.swift in Sources */,
 				AEDF05B8288CDCA9007DDF9E /* AppDelegate.swift in Sources */,
 				AE0CF23F28A298B90040B908 /* UIViewController+Extensions.swift in Sources */,
 				AEFBE349289F343C0068558D /* DestinyService.swift in Sources */,

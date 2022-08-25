@@ -33,6 +33,7 @@ class DestinyAccountTableViewCell: UITableViewCell {
         
     private func setupView() {
         contentView.backgroundColor = .clear
+        backgroundColor = .clear
     }
     
     private func setupViewHierarchy() {
