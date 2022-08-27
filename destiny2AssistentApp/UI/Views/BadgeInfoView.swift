@@ -43,7 +43,8 @@ class BadgeInfoView: UIView {
     
     lazy var containerStackView: UIStackView = {
         let containerStackView = UIView.makeUIStackWith(axis: .horizontal,
-                                                        distribution: .fillProportionally,
+                                                        distribution: .fill,
+                                                        alignment: .top,
                                                         spacing: 10)
         containerStackView.backgroundColor = .clear
         
@@ -66,6 +67,7 @@ class BadgeInfoView: UIView {
     lazy var trailingLabel: UILabel = {
         let trailingInformationView = UIView.makeUILabelWith(text: "")
         trailingInformationView.isHidden = true
+        trailingInformationView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return trailingInformationView
     }()
