@@ -65,8 +65,10 @@ class BadgeInfoView: UIView {
     }()
     
     lazy var trailingLabel: UILabel = {
-        let trailingInformationView = UIView.makeUILabelWith(text: "")
+        let trailingInformationView = UIView.makeUILabelWith(text: "",
+                                                             font: .boldSystemFont(ofSize: 20))
         trailingInformationView.isHidden = true
+        trailingInformationView.textColor = .yellow
         trailingInformationView.setContentHuggingPriority(.defaultHigh, for: .horizontal)
         
         return trailingInformationView
@@ -157,16 +159,16 @@ class BadgeInfoView: UIView {
 class TitleAndLabelView: UIView {
     
     lazy var titleLabel: UILabel = {
-        let titleLabel = UIView.makeUILabelWith(text: "")
-        titleLabel.font = .boldSystemFont(ofSize: 17)
+        let titleLabel = UIView.makeUILabelWith(text: "",
+                                                font: .boldSystemFont(ofSize: 17))
         
         return titleLabel
     }()
     
     lazy var subtitleLabel: UILabel = {
-        let subtitleLabel = UIView.makeUILabelWith(text: "")
-        subtitleLabel.font = .boldSystemFont(ofSize: 16)
-        
+        let subtitleLabel = UIView.makeUILabelWith(text: "",
+                                                   font: .boldSystemFont(ofSize: 16))
+
         return subtitleLabel
     }()
     
@@ -216,7 +218,7 @@ class TitleAndLabelView: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+            subtitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 8),
             subtitleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             subtitleLabel.bottomAnchor.constraint(lessThanOrEqualTo: bottomAnchor, constant: -10)
