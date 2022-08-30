@@ -50,6 +50,6 @@ extension DestinyAccount: BadgeInfoModel {
     }
     
     var trailingInfo: String? {
-        return "1350"
+        return nil
     }
 }

@@ -21,14 +21,6 @@ class HomeViewController: UIViewController,
     
     var loadingView: UIActivityIndicatorView?
     
-    lazy var requestButton: Button = {
-        let requestButton = Button(title: "Request") { [weak self] _ in
-            self?.viewModel.getUserProfileInfo()
-        }
-        
-        return requestButton
-    }()
-    
     lazy var accountsTableView: UITableView = {
         let accountsTableView = UITableView()
         accountsTableView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,6 +59,12 @@ class HomeViewController: UIViewController,
     private func setupNavigationBarTitle() {
         title = viewModel.screenTitle
         setupNavigationBar(withLargeTitle: true)
+        setupNavigationBarItemOn(positon: .right,
+                                 withIcon: .init(systemName: "arrow.counterclockwise"),
+                                 color: .white,
+                                 and: { [weak self] _ in
+            self?.viewModel.getUserProfileInfo()
+        })
     }
 
     private func setupView() {
@@ -75,17 +73,10 @@ class HomeViewController: UIViewController,
     
     private func setupViewsHierarchy() {
         view.addSubview(accountsTableView)
-        view.addSubview(requestButton)
     }
     
     private func setupViewsConstraints() {
         accountsTableView.constraintViewToSuperview()
-        
-        NSLayoutConstraint.activate([
-            requestButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            requestButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            requestButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -40)
-        ])
     }
     
     private func setupBindings() {
