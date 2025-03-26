@@ -27,3 +27,10 @@ struct AuthenticationConstants: APIConstantsProtocol {
     
     init() {}
 }
+
+struct GitHubAPIConstants: APIConstantsProtocol {
+    let host: String = "www.github.com"
+    let headers: [String : String] = [:] // opicional
+    
+    init() {}
+}

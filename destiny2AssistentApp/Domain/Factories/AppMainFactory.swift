@@ -24,7 +24,7 @@ class AppMainFactory {
                               decoder: DataDecoder())
         
         let authService = AuthenticationService(service: service,
-                                                requestFactory: RequestFactory(constants: AuthenticationConstants()))
+                                                requestFactory: RequestFactory(constants: GitHubAPIConstants()))
         
         let viewControllerfactory = ViewControllersFactory(authService: authService,
                                                            service: service)

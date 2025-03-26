@@ -5,7 +5,36 @@
 //  Created by Gonzalo Ivan Santos Portales on 01/08/22.
 //
 
+import AuthenticationServices
 import UIKit
+//
+//final class LoginSession: NSObject, ObservableObject, ASWebAuthenticationPresentationContextProviding {
+//    var webAuthSession: ASWebAuthenticationSession?
+//
+//    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+//        return ASPresentationAnchor()
+//    }
+//    
+//    func signIn() {
+//        
+//        
+//        
+//        let authSession = ASWebAuthenticationSession(
+//            url: authUrl,
+//            callbackURLScheme: apiData.redirectURL.absoluteString) { (url, error) in
+//            if let error = error {
+//                completion(.failure(error))
+//            } else if let url = url {
+//                completion(.success(url))
+//            }
+//        }
+//        
+//        authSession.presentationContextProvider = self
+//        authSession.prefersEphemeralWebBrowserSession = true
+//        authSession.start()
+//    }
+//    
+//}
 
 protocol LoginServiceProtocol {
     func requestLogin(completion: @escaping (Result<Void, Error>) -> Void)
@@ -22,7 +51,9 @@ class LoginViewController: UIViewController {
     }()
     
     lazy var loginButton: Button = {
+
         let loginButton = Button(title: "LOGIN") { [weak self] _ in
+            //print(UIApplication.shared.canOpenURL(URL(string: "destinyapp://")!))
             self?.service.requestLogin { result in
                 switch result {
                 case .success():

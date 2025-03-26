@@ -2,25 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Destiny2BoldFont.ttf</string>
-		<string>Destiny2SemiBoldFont.ttf</string>
-		<string>Destiny2ItalicFont.ttf</string>
-		<string>Destiny2NormalFont.ttf</string>
-	</array>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>Editor</string>
 			<key>CFBundleURLName</key>
-			<string>com.portales.destiny2AssistentApp</string>
+			<string></string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>com.portales.destiny2AssistentApp</string>
+				<string>destinyapp</string>
 			</array>
 		</dict>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Destiny2BoldFont.ttf</string>
+		<string>Destiny2SemiBoldFont.ttf</string>
+		<string>Destiny2ItalicFont.ttf</string>
+		<string>Destiny2NormalFont.ttf</string>
 	</array>
 	<key>UIApplicationSceneManifest</key>
 	<dict>

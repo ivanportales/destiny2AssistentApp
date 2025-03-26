@@ -36,7 +36,7 @@ class AuthenticationService: AuthenticationServiceProtocol {
     
     func requestAuthorization(completion: @escaping (Result<String, Error>) -> Void) throws {
         do {
-            let authRequest = AuthorizationRequest(stateCallbackUniqueId: state)
+            let authRequest = GitHubAuthorizationRequest(stateCallbackUniqueId: state)
             let request = try requestFactory.make(request: authRequest)
             
             service.send(request: request, completion: completion)
@@ -51,7 +51,7 @@ extension AuthenticationService: LoginServiceProtocol {
         loginRequestCallback = completion
         
         do {
-            guard let url = try requestFactory.make(request: AuthorizationRequest(stateCallbackUniqueId: state)).url else {
+            guard let url = try requestFactory.make(request: GitHubAuthorizationRequest(stateCallbackUniqueId: state)).url else {
                 completion(.failure(AuthenticationServiceError.urlCreationError))
                 return
             }
@@ -68,7 +68,7 @@ extension AuthenticationService: AuthenticationFlowHandler {
     func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
         do {
             let code = try getCodeFromUrl(url: url)
-            let request = TokenExchangeRequest(code: code)
+            let request = GitHubTokenExchangeRequest(code: code)
             let urlRequest = try requestFactory.make(request: request)
             
             service.send(request: urlRequest, completion: completion)

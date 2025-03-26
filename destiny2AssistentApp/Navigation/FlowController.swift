@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AuthenticationServices
 
 class MockedHomeService: HomeServiceProtocol {
     
@@ -26,11 +27,12 @@ class MockedHomeService: HomeServiceProtocol {
     }
 }
 
-class FlowController {
+final class FlowController: NSObject {
     
     private let navigationController: UINavigationController
     private let factory: ViewControllersFactory
     private let authService: AuthenticationServiceProtocol
+    private let login: Login
     
     init(navigationController: UINavigationController,
          factory: ViewControllersFactory,
@@ -38,17 +40,20 @@ class FlowController {
         self.navigationController = navigationController
         self.factory = factory
         self.authService = authService
+        let login = Login(authService: authService)
+        self.login = login
         authService.requestedAuthorizationCallback = { url in
             DispatchQueue.main.async {
-                let webViewController = factory.makeWebView(with: url)
-                navigationController.pushViewController(webViewController, animated: true)
+                login.signIn(withUrl: url)
+//                let webViewController = factory.makeWebView(with: url)
+//                navigationController.pushViewController(webViewController, animated: true)
             }
         }
     }
     
     func start() {
-        //let viewController = factory.makeLoginViewController()
-        navigationController.pushViewController(HomeViewController(viewModel: .init(service: MockedHomeService())), animated: false)
+        let viewController = factory.makeLoginViewController()
+        navigationController.pushViewController(viewController, animated: false)
     }
     
     func showHomeScreen(token: TokenResponse) {
@@ -75,5 +80,38 @@ class FlowController {
                 }
             }
         }
+    }
+}
+
+final class Login: NSObject, ASWebAuthenticationPresentationContextProviding {
+    
+    private let authService: AuthenticationServiceProtocol
+    
+    init(authService: AuthenticationServiceProtocol) {
+        self.authService = authService
+    }
+    
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return ASPresentationAnchor()
+    }
+    
+    func signIn(withUrl url: URL) {
+        let authSession = ASWebAuthenticationSession(
+            url: url,
+            callbackURLScheme: "destinyapp") { (url, error) in
+                print(url)
+                print(error)
+                if let url {
+                    self.authService.handleURLFromDeepLink(url) { [weak self] result in
+                        DispatchQueue.main.async {
+                            print("Result: \(result)")
+                        }
+                    }
+                }
+                
+        }
+        authSession.presentationContextProvider = self
+        authSession.prefersEphemeralWebBrowserSession = true
+        authSession.start()
     }
 }

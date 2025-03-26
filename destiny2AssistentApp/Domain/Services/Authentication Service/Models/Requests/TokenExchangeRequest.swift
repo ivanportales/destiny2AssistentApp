@@ -36,3 +36,24 @@ struct TokenExchangeRequest: RequestProtocol {
         ]
     }
 }
+
+struct GitHubTokenExchangeRequest: RequestProtocol {
+    var headers: [String : String] = [
+        "Accept": "application/json"
+    ]
+    var httpMethod: HTTPMethod = .post
+    var scheme: HTTPScheme = .https
+    var path: String = "/login/oauth/access_token"
+    var queriesParameters: [String : String] = [:]
+    var bodyParameters: [String: String] = [:]
+    var body: Data?
+    
+    init(code: String,
+         clientId: String = "Ov23liC2JLXWQB87FeE0") {
+        queriesParameters = [
+            "client_id": clientId,
+            "client_secret": "a6114c1259992e389779d5cd10e869cf0a50ad87",
+            "code": code
+        ]
+    }
+}
