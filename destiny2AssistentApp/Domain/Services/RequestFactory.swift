@@ -12,12 +12,13 @@ enum RequestFactoryError: Error {
 }
 
 protocol RequestFactoryProtocol {
-    func make(request: RequestProtocol) throws -> URLRequest 
+    func append(headers: [String: String])
+    func make(request: RequestProtocol) throws -> URLRequest
 }
 
-struct RequestFactory: RequestFactoryProtocol {
+final class RequestFactory: RequestFactoryProtocol {
     
-    private let constants: APIConstantsProtocol
+    private var constants: APIConstantsProtocol
     
     init(constants: APIConstantsProtocol) {
         self.constants = constants
@@ -38,6 +39,12 @@ struct RequestFactory: RequestFactoryProtocol {
         }
 
         return urlRequest
+    }
+    
+    func append(headers: [String : String]) {
+        for header in headers {
+            constants.headers[header.key] = header.value
+        }
     }
     
     private func makeURLComponents(from request: RequestProtocol) -> URLComponents {

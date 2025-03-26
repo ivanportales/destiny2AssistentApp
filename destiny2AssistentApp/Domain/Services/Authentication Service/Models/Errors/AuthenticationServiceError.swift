@@ -11,6 +11,7 @@ enum AuthenticationServiceError: Error, Equatable {
     case urlCreationError
     case queriesValuesNotFinded
     case differentStateValue
+    case authenticationReturnedFail
 }
 
 extension AuthenticationServiceError: LocalizedError {
@@ -29,6 +30,8 @@ extension AuthenticationServiceError {
                 return "Queries values not Finded"
             case differentStateValue:
                 return "Different State Value"
+            case .authenticationReturnedFail:
+                return "Authentication Returned Fail"
             }
         }
     }

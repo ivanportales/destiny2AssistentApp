@@ -32,7 +32,6 @@ final class FlowController: NSObject {
     private let navigationController: UINavigationController
     private let factory: ViewControllersFactory
     private let authService: AuthenticationServiceProtocol
-    private let login: Login
     
     init(navigationController: UINavigationController,
          factory: ViewControllersFactory,
@@ -40,15 +39,6 @@ final class FlowController: NSObject {
         self.navigationController = navigationController
         self.factory = factory
         self.authService = authService
-        let login = Login(authService: authService)
-        self.login = login
-        authService.requestedAuthorizationCallback = { url in
-            DispatchQueue.main.async {
-                login.signIn(withUrl: url)
-//                let webViewController = factory.makeWebView(with: url)
-//                navigationController.pushViewController(webViewController, animated: true)
-            }
-        }
     }
     
     func start() {
@@ -69,7 +59,7 @@ final class FlowController: NSObject {
     
     // aqui vamo dar um handle nos deeplinks
     func handle(openURLContext: UIOpenURLContext) {
-        authService.handleURLFromDeepLink(openURLContext.url) { [weak self] result in
+        authService.requestExchangeOfCodeForBearerToken(openURLContext.url) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let token):
@@ -80,38 +70,5 @@ final class FlowController: NSObject {
                 }
             }
         }
-    }
-}
-
-final class Login: NSObject, ASWebAuthenticationPresentationContextProviding {
-    
-    private let authService: AuthenticationServiceProtocol
-    
-    init(authService: AuthenticationServiceProtocol) {
-        self.authService = authService
-    }
-    
-    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
-        return ASPresentationAnchor()
-    }
-    
-    func signIn(withUrl url: URL) {
-        let authSession = ASWebAuthenticationSession(
-            url: url,
-            callbackURLScheme: "destinyapp") { (url, error) in
-                print(url)
-                print(error)
-                if let url {
-                    self.authService.handleURLFromDeepLink(url) { [weak self] result in
-                        DispatchQueue.main.async {
-                            print("Result: \(result)")
-                        }
-                    }
-                }
-                
-        }
-        authSession.presentationContextProvider = self
-        authSession.prefersEphemeralWebBrowserSession = true
-        authSession.start()
     }
 }

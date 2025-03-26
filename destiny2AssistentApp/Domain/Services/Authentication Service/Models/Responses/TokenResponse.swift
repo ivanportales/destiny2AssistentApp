@@ -23,4 +23,8 @@ struct TokenResponse: Decodable {
         case refreshExpiresIn = "refresh_expires_in"
         case membershipId = "membership_id"
     }
+    
+    func toAutorizationHeader() -> [String: String] {
+        ["Authorization": "Bearer \(accessToken)"]
+    }
 }

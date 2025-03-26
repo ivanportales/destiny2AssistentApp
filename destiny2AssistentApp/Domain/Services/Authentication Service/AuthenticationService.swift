@@ -5,67 +5,39 @@
 //  Created by Gonzalo Ivan Santos Portales on 31/07/22.
 //
 
+import AuthenticationServices
 import Foundation
 
-// isso ta aqui pq talvez eu possa usar no futuro
-protocol AuthenticationFlowHandler {
-    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void)
-}
-
 protocol AuthenticationServiceProtocol: AnyObject {
-    var requestedAuthorizationCallback: ((URL) -> Void)? { get set }
-    
-    func requestAuthorization(completion: @escaping (Result<String, Error>) -> Void) throws
-    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void)
+    func requestAuthentication(completion: @escaping (Result<Bool, Error>) -> Void)
+    func requestExchangeOfCodeForBearerToken(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void)
 }
 
-class AuthenticationService: AuthenticationServiceProtocol {
+final class AuthenticationService: NSObject, AuthenticationServiceProtocol {
     
-    private let requestFactory: RequestFactory
+    private let requestFactory: RequestFactoryProtocol
     private let service: ServiceProtocol
     private let state = UUID().uuidString
-    
-    private var loginRequestCallback: ((Result<Void, Error>) -> Void)?
-    var requestedAuthorizationCallback: ((URL) -> Void)?
-    
+        
     init(service: ServiceProtocol,
-         requestFactory: RequestFactory) {
+         requestFactory: RequestFactoryProtocol) {
         self.service = service
         self.requestFactory = requestFactory
     }
     
-    func requestAuthorization(completion: @escaping (Result<String, Error>) -> Void) throws {
-        do {
-            let authRequest = GitHubAuthorizationRequest(stateCallbackUniqueId: state)
-            let request = try requestFactory.make(request: authRequest)
-            
-            service.send(request: request, completion: completion)
-        } catch let error {
-            throw error
-        }
-    }
-}
-
-extension AuthenticationService: LoginServiceProtocol {
-    func requestLogin(completion: @escaping (Result<Void, Error>) -> Void) {
-        loginRequestCallback = completion
-        
+    func requestAuthentication(completion: @escaping (Result<Bool, Error>) -> Void) {
         do {
             guard let url = try requestFactory.make(request: GitHubAuthorizationRequest(stateCallbackUniqueId: state)).url else {
                 completion(.failure(AuthenticationServiceError.urlCreationError))
                 return
             }
-            requestedAuthorizationCallback?(url)
+            openWebAuthentication(withUrl: url, completion: completion)
         } catch let error {
-            loginRequestCallback = nil
             completion(.failure(error))
         }
     }
-}
-
-extension AuthenticationService: AuthenticationFlowHandler {
-
-    func handleURLFromDeepLink(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
+    
+    func requestExchangeOfCodeForBearerToken(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
         do {
             let code = try getCodeFromUrl(url: url)
             let request = GitHubTokenExchangeRequest(code: code)
@@ -92,5 +64,39 @@ extension AuthenticationService: AuthenticationFlowHandler {
         }
         
         return code
+    }
+}
+
+extension AuthenticationService: LoginServiceProtocol {
+    func requestLogin(completion: @escaping (Result<Bool, Error>) -> Void) {
+        requestAuthentication(completion: completion)
+    }
+}
+
+extension AuthenticationService: ASWebAuthenticationPresentationContextProviding {
+    func presentationAnchor(for session: ASWebAuthenticationSession) -> ASPresentationAnchor {
+        return ASPresentationAnchor()
+    }
+    
+    func openWebAuthentication(withUrl url: URL, completion: @escaping (Result<Bool, Error>) -> Void) {
+        let authSession = ASWebAuthenticationSession(url: url,
+                                                     callbackURLScheme: "destinyapp") { [weak self] (url, error) in
+                guard let url, error == nil else {
+                    completion(.failure(AuthenticationServiceError.authenticationReturnedFail))
+                    return
+                }
+                self?.requestExchangeOfCodeForBearerToken(url) { [weak self] result in
+                    switch result {
+                    case .success(let tokenResponse):
+                        self?.requestFactory.append(headers: tokenResponse.toAutorizationHeader())
+                        completion(.success(true))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+        }
+        authSession.presentationContextProvider = self
+        authSession.prefersEphemeralWebBrowserSession = true
+        authSession.start()
     }
 }
