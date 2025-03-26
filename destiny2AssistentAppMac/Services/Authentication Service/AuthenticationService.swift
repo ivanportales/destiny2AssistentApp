@@ -95,9 +95,3 @@ extension AuthenticationService: ASWebAuthenticationPresentationContextProviding
         authSession.start()
     }
 }
-
-extension AuthenticationService: LoginServiceProtocol {
-    func requestLogin(completion: @escaping (Result<Bool, Error>) -> Void) {
-        requestAuthentication(completion: completion)
-    }
-}

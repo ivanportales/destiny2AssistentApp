@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 55;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -74,6 +74,7 @@
 /* Begin PBXFileReference section */
 		AE0CF23E28A298B90040B908 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		AE0CF24128A29A880040B908 /* DestinyAccountTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinyAccountTableViewCell.swift; sourceTree = "<group>"; };
+		AE0E74D92D946AE40043C1D7 /* destiny2AssistentAppMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = destiny2AssistentAppMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE145D2B289753EF0037741C /* OAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuthService.swift; sourceTree = "<group>"; };
 		AE145D2E28975C5D0037741C /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		AE18039E28949BED00FEB082 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
@@ -129,7 +130,28 @@
 		AEFDC7AE288E1CB600BB5E31 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AE0E751C2D94AB490043C1D7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = AE0E74D82D946AE40043C1D7 /* destiny2AssistentAppMac */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		AE0E74DA2D946AE40043C1D7 /* destiny2AssistentAppMac */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (AE0E751C2D94AB490043C1D7 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = destiny2AssistentAppMac; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		AE0E74D62D946AE40043C1D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE1803A328949EE000FEB082 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -370,6 +392,7 @@
 			children = (
 				AEDF05B6288CDCA9007DDF9E /* destiny2AssistentApp */,
 				AE1803A728949EE000FEB082 /* destiny2AssistentAppTests */,
+				AE0E74DA2D946AE40043C1D7 /* destiny2AssistentAppMac */,
 				AEDF05B5288CDCA9007DDF9E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -379,6 +402,7 @@
 			children = (
 				AEDF05B4288CDCA9007DDF9E /* destiny2AssistentApp.app */,
 				AE1803A628949EE000FEB082 /* destiny2AssistentAppTests.xctest */,
+				AE0E74D92D946AE40043C1D7 /* destiny2AssistentAppMac.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -500,6 +524,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		AE0E74D82D946AE40043C1D7 /* destiny2AssistentAppMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AE0E74E72D946AE70043C1D7 /* Build configuration list for PBXNativeTarget "destiny2AssistentAppMac" */;
+			buildPhases = (
+				AE0E74D52D946AE40043C1D7 /* Sources */,
+				AE0E74D62D946AE40043C1D7 /* Frameworks */,
+				AE0E74D72D946AE40043C1D7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				AE0E74DA2D946AE40043C1D7 /* destiny2AssistentAppMac */,
+			);
+			name = destiny2AssistentAppMac;
+			packageProductDependencies = (
+			);
+			productName = destiny2AssistentAppMac;
+			productReference = AE0E74D92D946AE40043C1D7 /* destiny2AssistentAppMac.app */;
+			productType = "com.apple.product-type.application";
+		};
 		AE1803A528949EE000FEB082 /* destiny2AssistentAppTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = AE1803AC28949EE000FEB082 /* Build configuration list for PBXNativeTarget "destiny2AssistentAppTests" */;
@@ -542,9 +588,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1320;
+				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1320;
 				TargetAttributes = {
+					AE0E74D82D946AE40043C1D7 = {
+						CreatedOnToolsVersion = 16.2;
+					};
 					AE1803A528949EE000FEB082 = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = AEDF05B3288CDCA9007DDF9E;
@@ -569,11 +618,19 @@
 			targets = (
 				AEDF05B3288CDCA9007DDF9E /* destiny2AssistentApp */,
 				AE1803A528949EE000FEB082 /* destiny2AssistentAppTests */,
+				AE0E74D82D946AE40043C1D7 /* destiny2AssistentAppMac */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		AE0E74D72D946AE40043C1D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE1803A428949EE000FEB082 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -597,6 +654,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		AE0E74D52D946AE40043C1D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		AE1803A228949EE000FEB082 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -679,6 +743,73 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		AE0E74E52D946AE70043C1D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = destiny2AssistentAppMac/destiny2AssistentAppMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"destiny2AssistentAppMac/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = destiny2AssistentAppMac/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.portales.destiny2AssistentAppMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		AE0E74E62D946AE70043C1D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CODE_SIGN_ENTITLEMENTS = destiny2AssistentAppMac/destiny2AssistentAppMac.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"destiny2AssistentAppMac/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = destiny2AssistentAppMac/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.portales.destiny2AssistentAppMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		AE1803AD28949EE000FEB082 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -884,6 +1015,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		AE0E74E72D946AE70043C1D7 /* Build configuration list for PBXNativeTarget "destiny2AssistentAppMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AE0E74E52D946AE70043C1D7 /* Debug */,
+				AE0E74E62D946AE70043C1D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		AE1803AC28949EE000FEB082 /* Build configuration list for PBXNativeTarget "destiny2AssistentAppTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
