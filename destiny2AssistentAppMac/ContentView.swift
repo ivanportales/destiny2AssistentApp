@@ -46,10 +46,14 @@ final class AppFactory {
     
     func buildAuthenticationManager() -> AuthenticationManager {
         let service = Service(httpClient: URLSession.shared,
-                              decoder: DataDecoder())
-        
+                              decoder: DataDecoder(),
+                              requestFactory: RequestFactory(constants: GitHubAPIConstants()))
+        let configuration = AuthenticationServiceConfiguration(
+            authenticationRequest: GitHubAuthorizationRequest.self,
+            tokenExchangeRequest: GitHubTokenExchangeRequest.self
+        )
         let authService = AuthenticationService(service: service,
-                                                requestFactory: RequestFactory(constants: GitHubAPIConstants()))
+                                                configuration: configuration)
         
         return AuthenticationManager(authenticationService: authService)
     }

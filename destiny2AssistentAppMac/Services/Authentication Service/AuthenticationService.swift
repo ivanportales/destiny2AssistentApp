@@ -15,20 +15,19 @@ protocol AuthenticationServiceProtocol: AnyObject {
 
 final class AuthenticationService: NSObject, AuthenticationServiceProtocol {
     
-    private let requestFactory: RequestFactoryProtocol
     private let service: ServiceProtocol
-    private let state = UUID().uuidString
+    private let configuration: AuthenticationServiceConfiguration
         
     init(service: ServiceProtocol,
-         requestFactory: RequestFactoryProtocol) {
+         configuration: AuthenticationServiceConfiguration) {
         self.service = service
-        self.requestFactory = requestFactory
+        self.configuration = configuration
     }
     
     func requestAuthentication(completion: @escaping (Result<Bool, Error>) -> Void) {
         do {
-            let request = GitHubAuthorizationRequest(stateCallbackUniqueId: state)
-            guard let url = try requestFactory.make(request: request).url else {
+            let request = configuration.makeAuthorizationRequest()
+            guard let url = try service.requestFactory.make(request: request).url else {
                 completion(.failure(AuthenticationServiceError.urlCreationError))
                 return
             }
@@ -41,10 +40,8 @@ final class AuthenticationService: NSObject, AuthenticationServiceProtocol {
     func requestExchangeOfCodeForBearerToken(_ url: URL, completion: @escaping (Result<TokenResponse, Error>) -> Void) {
         do {
             let code = try getCodeFromUrl(url: url)
-            let request = GitHubTokenExchangeRequest(code: code)
-            let urlRequest = try requestFactory.make(request: request)
-            
-            service.send(request: urlRequest, completion: completion)
+            let request = configuration.makeTokenExchangeRequest(withCode: code)
+            service.send(request: request, completion: completion)
         } catch let error {
             completion(.failure(error))
         }
@@ -52,15 +49,15 @@ final class AuthenticationService: NSObject, AuthenticationServiceProtocol {
     
     private func getCodeFromUrl(url: URL) throws -> String {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
-            throw AuthenticationServiceError.urlCreationError
+            throw AuthenticationServiceError.tokenExchangeParamsValuesNotFound
         }
         
         guard let code = components.queryItems?.first(where: { $0.name == "code" })?.value,
               let state = components.queryItems?.first(where: { $0.name == "state" })?.value else {
-                  throw AuthenticationServiceError.queriesValuesNotFound
+                  throw AuthenticationServiceError.tokenExchangeParamsValuesNotFound
         }
         
-        if self.state != state {
+        if configuration.state != state {
             throw AuthenticationServiceError.differentStateValue
         }
         
@@ -75,7 +72,7 @@ extension AuthenticationService: ASWebAuthenticationPresentationContextProviding
     
     func openWebAuthentication(withUrl url: URL, completion: @escaping (Result<Bool, Error>) -> Void) {
         let authSession = ASWebAuthenticationSession(url: url,
-                                                     callbackURLScheme: "destinyapp") { [weak self] (url, error) in
+                                                     callbackURLScheme: configuration.appHostScheme) { [weak self] (url, error) in
                 guard let url, error == nil else {
                     completion(.failure(AuthenticationServiceError.authenticationReturnedFail))
                     return
@@ -83,7 +80,7 @@ extension AuthenticationService: ASWebAuthenticationPresentationContextProviding
                 self?.requestExchangeOfCodeForBearerToken(url) { [weak self] result in
                     switch result {
                     case .success(let tokenResponse):
-                        self?.requestFactory.append(headers: tokenResponse.toAutorizationHeader())
+                        self?.service.requestFactory.append(headers: tokenResponse.toAutorizationHeader())
                         completion(.success(true))
                     case .failure(let error):
                         completion(.failure(error))

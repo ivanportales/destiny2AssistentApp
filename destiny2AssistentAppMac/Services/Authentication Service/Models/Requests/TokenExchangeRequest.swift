@@ -37,7 +37,7 @@ struct TokenExchangeRequest: RequestProtocol {
     }
 }
 
-struct GitHubTokenExchangeRequest: RequestProtocol {
+struct GitHubTokenExchangeRequest: AuthenticationRequestProtocol {
     var headers: [String : String] = [
         "Accept": "application/json"
     ]
@@ -48,12 +48,7 @@ struct GitHubTokenExchangeRequest: RequestProtocol {
     var bodyParameters: [String: String] = [:]
     var body: Data?
     
-    init(code: String,
-         clientId: String = "Ov23liC2JLXWQB87FeE0") {
-        queriesParameters = [
-            "client_id": clientId,
-            "client_secret": "a6114c1259992e389779d5cd10e869cf0a50ad87",
-            "code": code
-        ]
+    init(dict: [String : String] = [:]) {
+        self.queriesParameters = dict
     }
 }

@@ -7,7 +7,8 @@
 
 import Foundation
 
-struct AuthorizationRequest: RequestProtocol {
+struct AuthorizationRequest: AuthenticationRequestProtocol {
+    
     var headers: [String : String] = [:]
     var httpMethod: HTTPMethod = .get
     var scheme: HTTPScheme = .https
@@ -15,17 +16,14 @@ struct AuthorizationRequest: RequestProtocol {
     var queriesParameters: [String : String]
     var body: Data?
     
-    init(stateCallbackUniqueId: String,
-         clientId: String = "40896") {
-        self.queriesParameters = [
-            "state": stateCallbackUniqueId,
-            "response_type": "code",
-            "client_id": clientId
-        ]
+    init(dict: [String : String] = [:]) {
+        var parameters = dict
+        parameters["response_type"] = "code"
+        self.queriesParameters = parameters
     }
 }
 
-struct GitHubAuthorizationRequest: RequestProtocol {
+struct GitHubAuthorizationRequest: AuthenticationRequestProtocol {
     var headers: [String : String] = [:]
     var httpMethod: HTTPMethod = .get
     var scheme: HTTPScheme = .https
@@ -33,13 +31,9 @@ struct GitHubAuthorizationRequest: RequestProtocol {
     var queriesParameters: [String : String]
     var body: Data?
     
-    init(stateCallbackUniqueId: String,
-         clientId: String = "Ov23liC2JLXWQB87FeE0") {
-        self.queriesParameters = [
-            "state": stateCallbackUniqueId,
-            "response_type": "code",
-            "client_id": clientId,
-            //"redirect_url": "destinyapp"
-        ]
+    init(dict: [String : String] = [:]) {
+        var parameters = dict
+        parameters["response_type"] = "code"
+        self.queriesParameters = parameters
     }
 }

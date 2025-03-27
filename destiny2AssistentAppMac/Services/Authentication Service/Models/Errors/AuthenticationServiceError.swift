@@ -9,7 +9,7 @@ import Foundation
 
 enum AuthenticationServiceError: Error {
     case urlCreationError
-    case queriesValuesNotFound
+    case tokenExchangeParamsValuesNotFound
     case differentStateValue
     case authenticationReturnedFail
 }
@@ -26,7 +26,7 @@ extension AuthenticationServiceError {
             switch error {
             case .urlCreationError:
                 return "URL Creation Error"
-            case .queriesValuesNotFound:
+            case .tokenExchangeParamsValuesNotFound:
                 return "Queries values for Token Exchange not found"
             case differentStateValue:
                 return "Different State value of authentication and token exchange parameter"
